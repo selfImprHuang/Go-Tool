@@ -7,7 +7,7 @@
 package main
 
 import (
-	"GoReflectTool/util"
+	"Go-Tool/util"
 	"fmt"
 	"reflect"
 )
