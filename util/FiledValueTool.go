@@ -44,6 +44,9 @@ func GetStructFieldTypeMap(i interface{}) map[string]interface{} {
  * @description
  */
 func GetPtrFieldTypeMap(i interface{}) map[string]interface{} {
+	if GetValueType(i) != reflect.Ptr {
+		panic("该方法只支持结构体指针对象")
+	}
 
 	var m map[string]interface{}
 	m = make(map[string]interface{})
@@ -68,6 +71,9 @@ func GetPtrFieldTypeMap(i interface{}) map[string]interface{} {
  * @description
  */
 func GetStructTypeFieldNameList(t reflect.Type) []string {
+	if t.Kind() != reflect.Struct {
+		panic("该方法只支持结构体类型")
+	}
 	list := make([]string, 0)
 
 	for i := 0; i < t.NumField(); i++ {
@@ -86,6 +92,9 @@ func GetStructTypeFieldNameList(t reflect.Type) []string {
  * @description
  */
 func GetPtrTypeFieldNameList(t reflect.Type) []string {
+	if t.Kind() != reflect.Ptr {
+		panic("该方法只支持结构体指针类型")
+	}
 	list := make([]string, 0)
 
 	typ := t.Elem()
