@@ -7,7 +7,7 @@
 package main
 
 import (
-	"Go-Tool/util"
+	"Go-Tool/util/reflectM"
 	"fmt"
 	"reflect"
 )
@@ -22,25 +22,25 @@ func testReflect() {
 		S:   "1223",
 		T:   make(map[string]string),
 	}
-	structMap := util.GetStructFieldTypeMap(entity)
+	structMap := reflectM.GetStructFieldTypeMap(entity)
 	fmt.Println("根据结构体获取Map结构")
 	for key, val := range structMap {
 		fmt.Println(fmt.Sprintf("结构体属性，key: %v ,value: %v ", key, val))
 	}
 
-	strMap := util.GetPtrFieldTypeMap(&entity)
+	strMap := reflectM.GetPtrFieldTypeMap(&entity)
 	fmt.Println("根据结构体的指针对象获取Map结构")
 	for key, val := range strMap {
 		fmt.Println(fmt.Sprintf("结构体属性，key: %v ,value: %v ", key, val))
 	}
 
-	ptrList := util.GetPtrTypeFieldNameList(reflect.TypeOf(&entity))
+	ptrList := reflectM.GetPtrTypeFieldNameList(reflect.TypeOf(&entity))
 	fmt.Println("根据结构体指针类型获取对应的属性名")
 	for _, val := range ptrList {
 		fmt.Println(fmt.Sprintf("字段名：%s ", val))
 	}
 
-	structList := util.GetStructTypeFieldNameList(reflect.TypeOf(entity))
+	structList := reflectM.GetStructTypeFieldNameList(reflect.TypeOf(entity))
 	fmt.Println("根据结构体类型获取对应所有字段名称")
 	for _, val := range structList {
 		fmt.Println(fmt.Sprintf("字段名：%s ", val))

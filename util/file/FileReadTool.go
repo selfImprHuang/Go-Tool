@@ -4,7 +4,7 @@
  *  @Description： 文件读取工具
  */
 
-package util
+package file
 
 import (
 	err2 "Go-Tool/err"
