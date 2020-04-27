@@ -5,3 +5,5 @@
 
 # 更新日志
 2020/4/24 ：创建FiledValueTool.go四个方法，分别处理【结构体对象】、【结构体指针对象】的字段名-字段值的map获取以及 【结构体类型】、【结构体指针类型】的字段名获取
+
+2020/4/27 ：创建FileUtil.go、FileReadTool.go、FileWriteTool.go文件，添加文件文件夹操作、读写文件操作方法
