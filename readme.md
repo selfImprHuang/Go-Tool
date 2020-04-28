@@ -9,3 +9,6 @@
 2020/4/27 ：创建FileUtil.go、FileReadTool.go、FileWriteTool.go文件，添加文件文件夹操作、读写文件操作方法
 
 2020/4/27 ：创建ColorUtil：颜色输出工具、修改目录层级、添加数据库表字段处理工具（需要已连接数据库）
+
+2020/4/28 : 创建IniTool.go:包装int工具类，进行文件配置数据结构的读取，包括对应的使用例子(工具地址：https://ini.unknwon.cn/docs/howto/work_with_sections)
+
