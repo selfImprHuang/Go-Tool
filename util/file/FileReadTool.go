@@ -66,3 +66,47 @@ func ReadByCircle(filePath string) (string, *err2.FileError) {
 
 	return fs, nil
 }
+
+func ReadFileLineNum(filePath string) (int, *err2.FileError) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return 0, err2.ENewFileError(err)
+	}
+	defer file.Close()
+
+	num := 0
+	inputReader := bufio.NewReader(file)
+	for {
+		_, readerError := inputReader.ReadString('\n')
+		if readerError == io.EOF {
+			num++
+			break
+		}
+		num++
+	}
+	return num, nil
+}
+
+func ReadFileLineNumExceptEmptyLine(filePath string) (int, *err2.FileError) {
+	file, err := os.Open(filePath)
+	if err != nil {
+		return 0, err2.ENewFileError(err)
+	}
+	defer file.Close()
+
+	num := 0
+	inputReader := bufio.NewReader(file)
+	for {
+		input, readerError := inputReader.ReadString('\n')
+		if readerError == io.EOF {
+			if input != "\r\n" && input != "" {
+				num++
+			}
+			break
+		}
+		if input != "\r\n" && input != "" {
+			num++
+		}
+	}
+	return num, nil
+}

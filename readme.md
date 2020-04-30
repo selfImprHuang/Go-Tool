@@ -12,3 +12,6 @@
 
 2020/4/28 : 创建IniTool.go:包装int工具类，进行文件配置数据结构的读取，包括对应的使用例子(工具地址：https://ini.unknwon.cn/docs/howto/work_with_sections)
 
+2020/4/30 ：添加FileUtil.go、FileReadTool.go单测类代码，修改相应bug-----IniTool.go依赖获取不到，注释掉代码
+
+2020/4/30 : 创建ArrayUtil.go，添加数组对应方法

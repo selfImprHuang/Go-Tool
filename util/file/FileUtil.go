@@ -172,30 +172,8 @@ func GetAllFileFromDir(filePath string) []*os.File {
 	return getFiles(filePath)
 }
 
-/*
- * @param
- * @return
- * @description 删除文件夹下面所有的空文件夹
- */
-func DeleteEmptyDir(filePath string) *err2.FileError {
-	err, is, _ := IsDirExist(filePath)
-	if err != nil {
-		return err2.ENewFileError(err)
-	}
-	if !is {
-		return err2.NewFileError("非文件夹")
-	}
-
-	//拿到所有的空文件夹
-	emptyDirList := getEmptyDir(filePath)
-	for _, row := range emptyDirList {
-		err := os.RemoveAll(row)
-		if err != nil {
-			return err2.ENewFileError(err)
-		}
-	}
-
-	return nil
+func GetAllFileNameFromDir(filePath string) []string {
+	return getFileNames(filePath)
 }
 
 /*
@@ -211,25 +189,141 @@ func GetAllEmptyDir(dir string) (*err2.FileError, []string) {
 	if !is {
 		return err2.NewFileError("非文件夹"), nil
 	}
-	return nil, getEmptyDir(dir)
+
+	list := make([]string, 0)
+	errE, paths := GetAllDir(dir)
+	if errE != nil {
+		return errE, nil
+	}
+	for _, row := range paths {
+		err, is := isEmptyDir(row)
+		if err != nil {
+			return err, nil
+		}
+		if is {
+			list = append(list, row)
+		}
+	}
+	return nil, list
 }
 
-func getEmptyDir(dir string) []string {
-	emptyDirList := make([]string, 0)
+/*
+ * 获取所有非空文件夹的路径集合
+ */
+func GetAllNotEmptyDir(dir string) (*err2.FileError, []string) {
+	err, is, _ := IsDirExist(dir)
+	if err != nil {
+		return err2.ENewFileError(err), nil
+	}
+	if !is {
+		return err2.NewFileError("非文件夹"), nil
+	}
+	files := make([]string, 0)
+	err1, aFiles := GetAllDir(dir)
+	if err1 != nil {
+		return err1, nil
+	}
+	err3, eFiles := GetAllEmptyDir(dir)
+	if err3 != nil {
+		return err3, nil
+	}
+	for _, a := range aFiles {
+		isIn := false
+		for _, e := range eFiles {
+			if a == e {
+				isIn = true
+				break
+			}
+		}
+		if !isIn {
+			files = append(files, a)
+		}
+	}
+	return nil, files
+}
+
+/*
+ * 获取目录下的所有文件夹路径集合
+ */
+func GetAllDir(dir string) (*err2.FileError, []string) {
+	err, is, _ := IsDirExist(dir)
+	if err != nil {
+		return err2.ENewFileError(err), nil
+	}
+	if !is {
+		return err2.NewFileError("非文件夹"), nil
+	}
+	return nil, getAllDir(dir)
+}
+
+/*
+ * @param
+ * @return
+ * @description 删除文件夹下面所有的空文件夹
+ */
+func DeleteEmptyDir(filePath string) *err2.FileError {
+	err, is, _ := IsDirExist(filePath)
+	if err != nil {
+		return err2.ENewFileError(err)
+	}
+	if !is {
+		return err2.NewFileError("非文件夹")
+	}
+
+	//拿到所有的空文件夹
+	err, emptyDirList := GetAllEmptyDir(filePath)
+	if err != nil {
+		return err
+	}
+	for _, row := range emptyDirList {
+		err := os.RemoveAll(row)
+		if err != nil {
+			return err2.ENewFileError(err)
+		}
+	}
+
+	return nil
+}
+
+func getAllDir(dir string) []string {
+
+	dirList := make([]string, 0)
 	info, err := ioutil.ReadDir(dir)
 	if err != nil {
 		return nil
 	}
 	for _, f := range info {
 		if f.IsDir() {
-			list := getFiles(fmt.Sprint(dir, "\\", f.Name()))
-			if list == nil || len(list) == 0 {
-				emptyDirList = append(emptyDirList, dir)
+			list := getAllDir(fmt.Sprint(dir, "\\", f.Name()))
+			dirList = append(dirList, fmt.Sprint(dir, "\\", f.Name()))
+			if list != nil {
+				for _, l := range list {
+					dirList = append(dirList, l)
+				}
 			}
 		}
 	}
 
-	return emptyDirList
+	return dirList
+}
+
+func isEmptyDir(dir string) (*err2.FileError, bool) {
+	_, err := ioutil.ReadDir(dir)
+	if err != nil {
+		panic(err)
+	}
+	file := GetAllFileFromDir(dir)
+	for _, f := range file {
+		info, err := f.Stat()
+		if err != nil {
+			return err2.ENewFileError(err), false
+		}
+		if !info.IsDir() {
+			return nil, false
+		}
+	}
+
+	return nil, true
 }
 
 func getFiles(filePath string) []*os.File {
@@ -240,6 +334,7 @@ func getFiles(filePath string) []*os.File {
 	}
 
 	for _, f := range info {
+		//处理文件夹的部分
 		if f.IsDir() {
 			list := getFiles(fmt.Sprint(filePath, "\\", f.Name()))
 			if list != nil {
@@ -247,8 +342,37 @@ func getFiles(filePath string) []*os.File {
 					fileList = append(fileList, row)
 				}
 			}
+		} else {
+			//处理文件的部分 -- 使用读写方法打开文件
+			thisFile, _ := os.OpenFile(fmt.Sprint(filePath, "\\", f.Name()), os.O_RDWR, 0666)
+			fileList = append(fileList, thisFile)
 		}
 	}
 
 	return fileList
+}
+
+func getFileNames(filePath string) []string {
+	nameList := make([]string, 0)
+	info, err := ioutil.ReadDir(filePath)
+	if err != nil {
+		return nil
+	}
+
+	for _, f := range info {
+		//处理文件夹的部分
+		if f.IsDir() {
+			list := getFileNames(fmt.Sprint(filePath, "\\", f.Name()))
+			if list != nil {
+				for _, row := range list {
+					nameList = append(nameList, row)
+				}
+			}
+		} else {
+			//处理文件的部分
+			nameList = append(nameList, fmt.Sprint(filePath, "\\", f.Name()))
+		}
+	}
+
+	return nameList
 }
