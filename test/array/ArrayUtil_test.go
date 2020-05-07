@@ -58,6 +58,7 @@ func TestBool(t *testing.T) {
 	fmt.Println(array.IsSubSet(mm, mm1))
 	fmt.Println(array.IsSubSet(mm, mm2))
 	fmt.Println(array.IsSubSet(mm, nn))
+	fmt.Printf("\n\n")
 
 }
 
