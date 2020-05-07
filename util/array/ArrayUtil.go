@@ -12,20 +12,12 @@ package array
 
 import "reflect"
 
-var (
-	invalid = [7]reflect.Kind{reflect.UnsafePointer, reflect.Map, reflect.Slice,
-		reflect.Interface, reflect.Func, reflect.Chan, reflect.Ptr}
-)
-
 /*
  * 返回数组中是否包含对应元素的结果
  */
 func Contains(list []interface{}, ele interface{}) bool {
-	if typeInvalid(reflect.TypeOf(ele).Kind()) {
-		panic("该类型不支持比较")
-	}
 	for _, row := range list {
-		if row == ele {
+		if reflect.DeepEqual(row, ele) {
 			return true
 		}
 	}
@@ -43,19 +35,12 @@ func NotContains(list []interface{}, ele interface{}) bool {
  * 返回两个数组的所有元素是否相等的结果
  */
 func IsSameList(list, eList []interface{}) bool {
-	same := 0
 	if len(list) != len(eList) {
 		return false
 	}
-	for _, l := range list {
-		for _, r := range eList {
-			if l == r {
-				same++
-				break
-			}
-		}
-	}
-	return same == len(list)
+
+	return reflect.DeepEqual(list, eList)
+
 }
 
 /*
@@ -113,19 +98,9 @@ func Union(aList, bList []interface{}) []interface{} {
 		}
 	}
 	for _, row := range bList {
-		if NotContains(bList, row) {
+		if NotContains(result, row) {
 			result = append(result, row)
 		}
 	}
 	return result
-}
-
-func typeInvalid(k reflect.Kind) bool {
-	for _, row := range invalid {
-		if k == row {
-			return true
-		}
-	}
-
-	return false
 }

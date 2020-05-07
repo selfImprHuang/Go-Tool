@@ -15,3 +15,5 @@
 2020/4/30 ：添加FileUtil.go、FileReadTool.go单测类代码，修改相应bug-----IniTool.go依赖获取不到，注释掉代码
 
 2020/4/30 : 创建ArrayUtil.go，添加数组对应方法
+
+2020/5/6 : 创建ArrayUtils测试类，修改对应方法
