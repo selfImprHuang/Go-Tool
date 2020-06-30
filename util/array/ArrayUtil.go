@@ -104,3 +104,18 @@ func Union(aList, bList []interface{}) []interface{} {
 	}
 	return result
 }
+
+func DeepCopyIntSlice(src []int) []int {
+	var clone = make([]int, len(src))
+	copy(clone, src)
+	return clone
+}
+
+func DeepCopyIntSlice2(src [][]int) [][]int {
+	var clone = make([][]int, len(src))
+	for i := 0; i < len(src); i++ {
+		clone[i] = DeepCopyIntSlice(src[i])
+	}
+
+	return clone
+}

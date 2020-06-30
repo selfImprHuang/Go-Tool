@@ -91,6 +91,11 @@ func TestJoin(t *testing.T) {
 	union(mm, mm2)
 }
 
+func TestEqual(t *testing.T) {
+	DeepCopyIntSlice()
+	DeepCopyIntSlice2()
+}
+
 func intersection(mm, nn []interface{}) {
 	i1 := array.Intersection(mm, nn)
 	for _, row := range i1 {
@@ -114,6 +119,18 @@ func union(mm, nn []interface{}) {
 		b, _ := json.Marshal(row)
 		fmt.Print(string(b))
 	}
+}
+
+func DeepCopyIntSlice() {
+	src := []int{1, 2, 3, 4, 5, 6}
+	src1 := array.DeepCopyIntSlice(src)
+	fmt.Println(&src == &src1)
+}
+
+func DeepCopyIntSlice2() {
+	src := [][]int{{1, 2, 3}, {4, 5, 6}}
+	src1 := array.DeepCopyIntSlice2(src)
+	fmt.Println(&src == &src1)
 }
 
 func init() {
