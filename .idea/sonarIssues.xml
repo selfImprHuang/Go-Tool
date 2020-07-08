@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/dev/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13231_GiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/action/activityConfig/GetActivityConfig_11901.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminEditTimeLimitSynthesisActivity_25301.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminFindTimeLimitSynthesisActivity_25304.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/cheat/gm/GmFuncManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/cheat/gm/TimeLimitActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/component/itemCmp/ItemComponent.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/component/timelimitSynthesisCmp/SynthesisCmp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/dal/TbSrv/TbRActivitySynthesisRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/app/dal/TbSrv/TbTimeLimitSynthesisActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_GrandMainSer/my_version/src/GrandMainSer/go.mod">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/ModuleManager/ModuleManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/TimeLimitSynthesisActivity/TimeLimitSynthesisData15101.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/TimeLimitSynthesisActivity/TimeLimitSynthesis_15100.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/TimeLimitSynthesisActivity/attr.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/achievement/GetAchievementData11201_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/activityConfig/GetActivityConfig_11901.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/dailyTask/GetActivityAward11303.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/dailyTask/GetDailyTaskAward11302.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/dailyTask/GetDailyTaskData11301.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/load.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/ramadan/18709_GetSelfMarkketInfo.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/ramadan/18714_EnterStew.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/ramadan/18717_GetRankList.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/ramadan/CatchCat_18725.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/ramadan/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/action/welfare/GetVipLevelReward_11503.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminAddTimeLimitSynthesisActivity_25306.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminChangeTimeLimitSynthesisActivity_25302.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminDeleteTimeLimitSynthesisActivity_25303.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminEditTimeLimitSynthesisActivity_25301.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/AdminFindTimeLimitSynthesisActivity_25304.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/admin/TimeLimitSynthesisActivity/TimeLimitSynthesisActivity_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeAction/13236_ItemSurplusExchange.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeAction/13237_ItemSurplusExchangeConfig.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeAction/ItemSurplusExchange_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeCmp/ExchangeManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeDal/TcItemSurplusExchangeSrv.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeModel/ExchangeCfg.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeModel/ExchangeItem.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/activityItemExchange/activityItemExchangeModel/TcItemSurplusExchange.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/friendReturn/friendReturnAction/GetRankList_17902.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13231_GiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13231_giftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13232_OpenGift.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13233_ChooseRareProp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13234_NextRounds.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetAction/13235_GiftShopCabinetLog.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/ActivityManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/GameManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/GiftShopCabinetGameManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/RecordManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/giftShopCabinetSys.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetDal/TbGiftShopAwardRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetDal/TbGiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetDal/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetEnum/cabinetEnum.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/GiftShopCabinetActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/GiftShopCabinetClient.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/GiftShopCabinetLog.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/TbGiftShopAwardRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/TbGiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetModel/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/playerComeBack/playerComebackAction/18801_GetData.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/surprisepackage/surprisePackageCmp/ActivityManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/business/surprisepackage/surprisePackageCmp/MailManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/cache/TbTimeLimitSynthesisActivityCfgCache.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/cheat/gm/TimeLimitActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/cheat/gm/Timer.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/activity2/activity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/activity2/activityDefine/GiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/activityAchievement/activityAchievementRedPoint.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/deleteExpiredActivityCmp/deleteExpiredActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/infiniteBattleCmp/infiniteBattleFight.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/itemCmp/ItemComponent.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/loginNewCmp/loginCmp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/marketingCmp/marketing.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/ramadanCmp/ramadanExchange.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/ramadanCmp/ramadanFarm.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/ramadanCmp/ramadanHall.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/ramadanCmp/ramadanStew.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/skinCmp/beautySkinSys.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/skinCmp/counsellorSkinSys.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/timeLimitCmp/timeLimitComponent.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/timelimitSynthesisCmp/SynthesisCmp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/component/timelimitSynthesisCmp/SynthesisStruct.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbGiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbRActivityRoleItem.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbRActivitySynthesisRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbRoleData.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TbSrv/TbTimeLimitSynthesisActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/TcSrv/ConfigEnvSet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/mysql/TbModels/TbGiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/mysql/TbModels/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/dal/mysql/TbModels/TbTimeLimitSynthesisActivity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/enum/ActivityEventLog/attr.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/enum/ActivityType/ActivityType.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/gameConfig/TcManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/srv/serviceCenter.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/testlib/TgLoginRecord_test/TgLoginRecord_FindByRoleId.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/util/arrayUtil/arrayutil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/util/cronutil/cronutil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/app/util/timeutil/timeutil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/go.mod">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/vendor/github.com/ugorji/go/codec/decode.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/Go_packages/src/GrandMainSer/vendor/github.com/ugorji/go/codec/encode.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/Main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/entity/DeepClone.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/entity/TestEntity.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/entity/UserType.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/example/CloneExample.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/example/JsonTest.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/example/MapstructureExample.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/go.mod">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/readme.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-StudyExample/util/DeepCloneUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Go-SubTableTool/util/filedValueTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/MainTest.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/err/FileError.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/error/FileError.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/go.mod">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/go.sum">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/readme.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/array/ArrayUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/emptyDirTest/1/11.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/file/FileReadTool_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/file/FileUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/file/FileWriteTool_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TestTimeIntervalUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TestTimeIntervalUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TimeCompareUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TimeFormatUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TimeStampUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/test/timed/TimeStampUtil_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/ColorUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/FileReadTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/FileUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/FileWriteTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/FiledValueTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/MatrixRotationUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/array/ArrayUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/file/FileReadTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/file/FileUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/ini/IniTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/reflectM/FiledValueTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/tableField/ColumnMessage.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/tableField/TableFieldUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/time/NowTimeTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/time/TimeTool.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/MouthEnum.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/TimeCompareUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/TimeFormatUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/TimeIntervalUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/TimeStampUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/enum/MouthEnum.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/vo/IntervalObj.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/util/timed/vo/IntervalTimeObj.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ReverseEngine/reverse/Engine.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ReverseEngine/util/FileUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/LocalTest/ReadFile.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/LocalTest/TestMain.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/LocalTest/util/FileUtil.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/ReverseEngine/Main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/ReverseEngine/filepath/TbGiftShopAwardRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/ReverseEngine/filepath/TbGiftShopCabinet.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/ReverseEngine/filepath/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/self_project/src/ReverseEngine/filepath/TcItemSurplusExchange.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/action/dailyTask/GetDailyTaskAward11302.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/action/dailyTask/GetDailyTaskData11301.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/GameManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetCmp/giftVoucherSys.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/giftShopCabinet/giftShopCabinetDal/TbGiftVoucherRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/superviseCelebrationAction/13241_PrepareCelebration.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/superviseCelebrationAction/13242_ReceiveAward.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/superviseCelebrationCmp/GameManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/superviseCelebrationEnum/SuperviseCelebrationEnum.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/business/superviseCelebration/superviseCelebrationModel/TbSuperviseAwardRecord.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/cheat/gm/GmFuncManager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/component/marketingCmp/marketing.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/core/manager.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="F:/代码/Game_Server/src/GrandMainSer/app/serverManager/server/startModule.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
