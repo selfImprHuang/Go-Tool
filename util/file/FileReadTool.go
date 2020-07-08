@@ -9,6 +9,7 @@ package file
 import (
 	err2 "Go-Tool/err"
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -109,4 +110,29 @@ func ReadFileLineNumExceptEmptyLine(filePath string) (int, *err2.FileError) {
 		}
 	}
 	return num, nil
+}
+
+//读取json文件内容
+//这边发现就是说如果按照正常的文件读取方式来读取json文件，读取到的内容是乱码的
+//所以这边通过加解码的方式来读取，返回一个json串出去
+//外部的调用者通过解析转换成对应的结构体对象
+//@param filePath 文件路径
+func ReadJsonFile(filePath string) (string, error) {
+	filePtr, err := os.Open(filePath)
+	if err != nil {
+		return "", err
+	}
+	defer filePtr.Close()
+
+	decoder := json.NewDecoder(filePtr)
+	sMap := make(map[string]interface{}, 0)
+	err = decoder.Decode(&sMap)
+	if err != nil {
+		return "", err
+	}
+	bs, err := json.Marshal(sMap)
+	if err != nil {
+		return "", err
+	}
+	return string(bs), nil
 }
