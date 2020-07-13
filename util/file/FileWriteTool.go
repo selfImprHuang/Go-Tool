@@ -7,7 +7,6 @@
 package file
 
 import (
-	err2 "Go-Tool/err"
 	"io/ioutil"
 	"os"
 )
@@ -18,10 +17,10 @@ import (
  * @return
  * @description
  */
-func WriteByIoUtil(filePath, content string) *err2.FileError {
+func WriteByIoUtil(filePath, content string) error {
 	err := ioutil.WriteFile(filePath, []byte(content), 0644)
 	if err != nil {
-		return err2.ENewFileError(err)
+		return err
 	}
 	return nil
 }
@@ -33,15 +32,15 @@ func WriteByIoUtil(filePath, content string) *err2.FileError {
  * @return  File 文件对象，成功写入才会返回文件对象，否则是nil
  * @description
  */
-func WriteByFile(filePath, content string) (*err2.FileError, *os.File) {
+func WriteByFile(filePath, content string) (error, *os.File) {
 	fileObj, err := os.OpenFile(filePath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 	if err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 	defer fileObj.Close()
 
 	if _, err := fileObj.WriteString(content); err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 
 	return nil, fileObj

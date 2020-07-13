@@ -19,7 +19,7 @@
 package file
 
 import (
-	err2 "Go-Tool/err"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -32,28 +32,28 @@ import (
  * @return os.FileInfo 返回FileInfo对象，如果没有的话返回nil
  * @description
  */
-func IsDirExist(path string) (*err2.FileError, bool, os.FileInfo) {
+func IsDirExist(path string) (error, bool, os.FileInfo) {
 	dir, err := os.Stat(path)
 	//如果路仅错误直接返回错误
 	if err != nil {
-		return err2.ENewFileError(err), false, nil
+		return err, false, nil
 	}
 	//如果是文件夹直接返回
 	if dir.IsDir() {
 		return nil, true, dir
 	}
-	return err2.NewFileError("非文件夹"), false, nil
+	return errors.New("非文件夹"), false, nil
 }
 
-func IsFileExist(path string) (*err2.FileError, bool, os.FileInfo) {
+func IsFileExist(path string) (error, bool, os.FileInfo) {
 	file, err := os.Stat(path)
 	//如果路仅错误直接返回错误
 	if err != nil {
-		return err2.ENewFileError(err), false, nil
+		return err, false, nil
 	}
 
 	if file.IsDir() {
-		return err2.NewFileError("非文件"), false, nil
+		return errors.New("非文件"), false, nil
 	}
 
 	return nil, true, file
@@ -66,19 +66,19 @@ func IsFileExist(path string) (*err2.FileError, bool, os.FileInfo) {
  * @return *File 返回文件对象，如果没有返回nil
  * @description 这边需要注意的是，在打开文件的时候，如果报错，分两种情况，一个是没权限，一个是文件有问题
  */
-func HasReadPermission(filePath string) (*err2.FileError, bool, *os.File) {
+func HasReadPermission(filePath string) (error, bool, *os.File) {
 	eErr, exist, _ := IsFileExist(filePath)
 	if eErr != nil || !exist {
-		return err2.ENewFileError(eErr), false, nil
+		return eErr, false, nil
 	}
 	file, err := os.OpenFile(filePath, os.O_RDONLY, 0666)
 	if err != nil {
 		//如果是没权限的错误返回
 		if os.IsPermission(err) {
-			return err2.ENewFileError(err), false, nil
+			return err, false, nil
 		}
 		//如果有权限但是发生错误的话，返回错误和有权限的标识
-		return err2.ENewFileError(err), true, nil
+		return err, true, nil
 	}
 
 	return nil, true, file
@@ -91,19 +91,19 @@ func HasReadPermission(filePath string) (*err2.FileError, bool, *os.File) {
  * @return *File 返回文件对象，如果没有返回nil
  * @description 这边需要注意的是，在打开文件的时候，如果报错，分两种情况，一个是没权限，一个是文件有问题
  */
-func HasWritePermission(filePath string) (*err2.FileError, bool, *os.File) {
+func HasWritePermission(filePath string) (error, bool, *os.File) {
 	eErr, exist, _ := IsFileExist(filePath)
 	if eErr != nil || !exist {
-		return err2.ENewFileError(eErr), false, nil
+		return eErr, false, nil
 	}
 	file, err := os.OpenFile(filePath, os.O_WRONLY, 0666)
 	if err != nil {
 		//如果是没权限的错误返回
 		if os.IsPermission(err) {
-			return err2.ENewFileError(err), false, nil
+			return err, false, nil
 		}
 		//如果有权限但是发生错误的话，返回错误和有权限的标识
-		return err2.ENewFileError(err), true, nil
+		return err, true, nil
 	}
 
 	return nil, true, file
@@ -116,7 +116,7 @@ func HasWritePermission(filePath string) (*err2.FileError, bool, *os.File) {
  * @return *File 返回文件对象，如果没有返回nil
  * @description 判断对文件是否有读写权限.
  */
-func HasReadWritePermission(filePath string) (*err2.FileError, bool, *os.File) {
+func HasReadWritePermission(filePath string) (error, bool, *os.File) {
 	rErr, hasR, rFile := HasReadPermission(filePath)
 	wErr, hasW, _ := HasWritePermission(filePath)
 	if hasR && hasW {
@@ -124,10 +124,10 @@ func HasReadWritePermission(filePath string) (*err2.FileError, bool, *os.File) {
 	}
 
 	if rErr != nil {
-		return err2.ENewFileError(rErr), false, nil
+		return rErr, false, nil
 	}
 
-	return err2.ENewFileError(wErr), false, nil
+	return wErr, false, nil
 }
 
 /*
@@ -136,10 +136,10 @@ func HasReadWritePermission(filePath string) (*err2.FileError, bool, *os.File) {
  * @return File文件指针对象
  * @description 创建文件，如果文件存在不进行覆盖
  */
-func CreateFile(filePath string) (*err2.FileError, *os.File) {
+func CreateFile(filePath string) (error, *os.File) {
 	file, err := os.Create(filePath)
 	if err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 	return nil, file
 }
@@ -150,13 +150,13 @@ func CreateFile(filePath string) (*err2.FileError, *os.File) {
  * @return File文件指针对象
  * @description 创建文件，如果文件存在进行覆盖
  */
-func CreateOrCoverFile(filePath string) (*err2.FileError, *os.File) {
+func CreateOrCoverFile(filePath string) (error, *os.File) {
 	_, has, _ := IsFileExist(filePath)
 
 	if has {
 		rErr := os.Remove(filePath)
 		if rErr != nil {
-			return err2.ENewFileError(rErr), nil
+			return rErr, nil
 		}
 		return CreateFile(filePath)
 	}
@@ -181,13 +181,13 @@ func GetAllFileNameFromDir(filePath string) []string {
  * @return 所有空文件夹数组
  * @description 获取文件夹下面所有的空文件夹数组
  */
-func GetAllEmptyDir(dir string) (*err2.FileError, []string) {
+func GetAllEmptyDir(dir string) (error, []string) {
 	err, is, _ := IsDirExist(dir)
 	if err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 	if !is {
-		return err2.NewFileError("非文件夹"), nil
+		return errors.New("非文件夹"), nil
 	}
 
 	list := make([]string, 0)
@@ -210,13 +210,13 @@ func GetAllEmptyDir(dir string) (*err2.FileError, []string) {
 /*
  * 获取所有非空文件夹的路径集合
  */
-func GetAllNotEmptyDir(dir string) (*err2.FileError, []string) {
+func GetAllNotEmptyDir(dir string) (error, []string) {
 	err, is, _ := IsDirExist(dir)
 	if err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 	if !is {
-		return err2.NewFileError("非文件夹"), nil
+		return errors.New("非文件夹"), nil
 	}
 	files := make([]string, 0)
 	err1, aFiles := GetAllDir(dir)
@@ -245,13 +245,13 @@ func GetAllNotEmptyDir(dir string) (*err2.FileError, []string) {
 /*
  * 获取目录下的所有文件夹路径集合
  */
-func GetAllDir(dir string) (*err2.FileError, []string) {
+func GetAllDir(dir string) (error, []string) {
 	err, is, _ := IsDirExist(dir)
 	if err != nil {
-		return err2.ENewFileError(err), nil
+		return err, nil
 	}
 	if !is {
-		return err2.NewFileError("非文件夹"), nil
+		return errors.New("非文件夹"), nil
 	}
 	return nil, getAllDir(dir)
 }
@@ -261,13 +261,13 @@ func GetAllDir(dir string) (*err2.FileError, []string) {
  * @return
  * @description 删除文件夹下面所有的空文件夹
  */
-func DeleteEmptyDir(filePath string) *err2.FileError {
+func DeleteEmptyDir(filePath string) error {
 	err, is, _ := IsDirExist(filePath)
 	if err != nil {
-		return err2.ENewFileError(err)
+		return err
 	}
 	if !is {
-		return err2.NewFileError("非文件夹")
+		return errors.New("非文件夹")
 	}
 
 	//拿到所有的空文件夹
@@ -278,7 +278,7 @@ func DeleteEmptyDir(filePath string) *err2.FileError {
 	for _, row := range emptyDirList {
 		err := os.RemoveAll(row)
 		if err != nil {
-			return err2.ENewFileError(err)
+			return err
 		}
 	}
 
@@ -307,7 +307,7 @@ func getAllDir(dir string) []string {
 	return dirList
 }
 
-func isEmptyDir(dir string) (*err2.FileError, bool) {
+func isEmptyDir(dir string) (error, bool) {
 	_, err := ioutil.ReadDir(dir)
 	if err != nil {
 		panic(err)
@@ -316,7 +316,7 @@ func isEmptyDir(dir string) (*err2.FileError, bool) {
 	for _, f := range file {
 		info, err := f.Stat()
 		if err != nil {
-			return err2.ENewFileError(err), false
+			return err, false
 		}
 		if !info.IsDir() {
 			return nil, false

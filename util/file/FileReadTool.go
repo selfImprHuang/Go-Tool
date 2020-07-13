@@ -7,9 +7,9 @@
 package file
 
 import (
-	err2 "Go-Tool/err"
 	"bufio"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -22,18 +22,18 @@ import (
  * @return FileError 报错信息
  * @description 一次直接读取文件中的内容不进行中间处理
  */
-func ReadInOnce(filePath string) (string, *err2.FileError) {
+func ReadInOnce(filePath string) (string, error) {
 	err, is, _ := IsFileExist(filePath)
 	if err != nil {
-		return "", err2.ENewFileError(err)
+		return "", err
 	}
 	if !is {
-		return "", err2.NewFileError("非文件")
+		return "", errors.New("非文件")
 	}
 
 	fd, iErr := ioutil.ReadFile(filePath)
 	if iErr != nil {
-		return "", err2.ENewFileError(iErr)
+		return "", iErr
 	}
 
 	return string(fd), nil
@@ -45,11 +45,11 @@ func ReadInOnce(filePath string) (string, *err2.FileError) {
  * @return FileError 读取错误，如果没有错误返回nil
  * @description 通过for循环去读取文件，这边提供一种读取方式，通过这种方式来处理对应读取的操作
  */
-func ReadByCircle(filePath string) (string, *err2.FileError) {
+func ReadByCircle(filePath string) (string, error) {
 	var fs string
 	file, err := os.Open(filePath)
 	if err != nil {
-		return "", err2.ENewFileError(err)
+		return "", err
 	}
 	defer file.Close()
 
@@ -68,10 +68,10 @@ func ReadByCircle(filePath string) (string, *err2.FileError) {
 	return fs, nil
 }
 
-func ReadFileLineNum(filePath string) (int, *err2.FileError) {
+func ReadFileLineNum(filePath string) (int, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
-		return 0, err2.ENewFileError(err)
+		return 0, err
 	}
 	defer file.Close()
 
@@ -88,10 +88,10 @@ func ReadFileLineNum(filePath string) (int, *err2.FileError) {
 	return num, nil
 }
 
-func ReadFileLineNumExceptEmptyLine(filePath string) (int, *err2.FileError) {
+func ReadFileLineNumExceptEmptyLine(filePath string) (int, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
-		return 0, err2.ENewFileError(err)
+		return 0, err
 	}
 	defer file.Close()
 
