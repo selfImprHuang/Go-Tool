@@ -40,6 +40,7 @@ func crc32Change(s string) uint32 {
 	return crc32.ChecksumIEEE([]byte(s))
 }
 
+//这边模的结果是从0开始到mod-1：即范围为 [0,mod)。可以做相应改进
 func Crc32Mode(s string, mod int) int {
 	u := crc32Change(s)
 	return int(u) % mod
