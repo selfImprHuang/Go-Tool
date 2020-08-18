@@ -4,7 +4,7 @@
  *  @Description：
  */
 
-package KnapsackOptimization
+package knapsackOptimization
 
 import "fmt"
 

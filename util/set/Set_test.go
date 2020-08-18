@@ -7,13 +7,12 @@
 package set
 
 import (
-	set2 "Go-Tool/util/set"
 	"fmt"
 	"testing"
 )
 
 func TestSet(t *testing.T) {
-	set := new(set2.Set)
+	set := new(Set)
 	set.Add(1)
 	set.Add(2)
 	set.Add("123")

@@ -42,6 +42,7 @@
 
 2020/8/6: 添加求背包问题最优解三种方式(KnapsackOptimizationUtil.go)及其单测类，添加求背包问题最优解过程路径(KnapsackSearchAnswerUtil.go)及其单测类.添加背包问题的readme相关说明
 
+2020/8/18:修改单测位置，添加lomuto查找第k小元素算法代码及其单测（分治法）
 
 
 # mod vendor模式加载包

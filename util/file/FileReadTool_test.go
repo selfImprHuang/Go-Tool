@@ -7,22 +7,21 @@
 package file
 
 import (
-	"Go-Tool/util/file"
 	"encoding/json"
 	"fmt"
 	"testing"
 )
 
 func TestReadFileLineNum(t *testing.T) {
-	fmt.Print(file.ReadFileLineNum("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest\\1\\11.txt"))
+	fmt.Print(ReadFileLineNum("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest\\1\\11.txt"))
 }
 
 func TestReadFileLineNumExceptEmptyLine(t *testing.T) {
-	fmt.Println(file.ReadFileLineNumExceptEmptyLine("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest\\1\\11.txt"))
+	fmt.Println(ReadFileLineNumExceptEmptyLine("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest\\1\\11.txt"))
 }
 
 func TestReadJsonFile(t *testing.T) {
-	content, _ := file.ReadJsonFile("F:\\Go个人代码\\src\\Go-Tool\\test\\file\\json_file_test_mode.json")
+	content, _ := ReadJsonFile("F:\\Go个人代码\\src\\Go-Tool\\util\\file\\json_file_test_mode.json")
 	fmt.Println(content)
 	var testMode JsonTestMode
 	_ = json.Unmarshal([]byte(content), &testMode)

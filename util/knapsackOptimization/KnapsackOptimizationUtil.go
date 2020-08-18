@@ -6,7 +6,7 @@
  *  参考地址：https://blog.csdn.net/chanmufeng/article/details/82955730
  */
 
-package KnapsackOptimization
+package knapsackOptimization
 
 type KnapsackOptimization struct {
 	BagCapacity int        //背包的总容量上限

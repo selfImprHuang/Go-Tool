@@ -7,25 +7,24 @@
 package timed
 
 import (
-	"Go-Tool/util/timed"
 	"fmt"
 	"testing"
 )
 
 func TestTimeStampUtil(t *testing.T) {
 	fmt.Print("\n\n")
-	fmt.Println(timed.GetNowHourUnix())
+	fmt.Println(GetNowHourUnix())
 
 	fmt.Print("\n\n")
-	fmt.Println(timed.GetNowUnix())
+	fmt.Println(GetNowUnix())
 
 	fmt.Print("\n\n")
-	fmt.Println(timed.GetZeroHourUnix())
+	fmt.Println(GetZeroHourUnix())
 
 	fmt.Print("\n\n")
-	fmt.Println(timed.GetNowYearUnix())
+	fmt.Println(GetNowYearUnix())
 
 	fmt.Print("\n\n")
-	fmt.Println(timed.GetNowMonthUnix())
+	fmt.Println(GetNowMonthUnix())
 
 }

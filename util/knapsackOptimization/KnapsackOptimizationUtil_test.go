@@ -6,43 +6,42 @@
  *  参考地址：https://blog.csdn.net/chanmufeng/article/details/82955730
  */
 
-package KnapsackOptimizationTest
+package knapsackOptimization
 
 import (
-	"Go-Tool/util/KnapsackOptimization"
 	"fmt"
 	"testing"
 )
 
 func TestKnapsackOptimizationUtil(t *testing.T) {
-	bagItem := make([]*KnapsackOptimization.BagItem, 0)
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem := make([]*BagItem, 0)
+	bagItem = append(bagItem, &BagItem{
 		Value:  3,
 		Weight: 2,
 	})
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem = append(bagItem, &BagItem{
 		Value:  3,
 		Weight: 3,
 	})
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem = append(bagItem, &BagItem{
 		Value:  4,
 		Weight: 4,
 	})
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem = append(bagItem, &BagItem{
 		Value:  5,
 		Weight: 5,
 	})
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem = append(bagItem, &BagItem{
 		Value:  6,
 		Weight: 2,
 	})
-	bagItem = append(bagItem, &KnapsackOptimization.BagItem{
+	bagItem = append(bagItem, &BagItem{
 		Value:  7,
 		Weight: 2,
 	})
-	cmd := KnapsackOptimization.NewKnapsackOptimization(bagItem, 12)
-	cmd1 := KnapsackOptimization.NewKnapsackOptimization(bagItem, 12)
-	cmd2 := KnapsackOptimization.NewKnapsackOptimization(bagItem, 12)
+	cmd := NewKnapsackOptimization(bagItem, 12)
+	cmd1 := NewKnapsackOptimization(bagItem, 12)
+	cmd2 := NewKnapsackOptimization(bagItem, 12)
 	fmt.Print(cmd.OptimizePackageByRecursion()) //通过递归解背包问题
 
 	fmt.Println(cmd1.KnapsackCycle()) //通过逆序解背包问题.

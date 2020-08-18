@@ -4,17 +4,16 @@
  *  @Description：
  */
 
-package deepSearchTest
+package deepSearch
 
 import (
-	"Go-Tool/util/deepSearch"
 	"fmt"
 	"testing"
 )
 
 func TestOriginDeepSearch(t *testing.T) {
-	srv := deepSearch.NewDeepSearch()
-	itemGroup := srv.GetItemMatchNum([]deepSearch.ItemValue{
+	srv := NewDeepSearch()
+	itemGroup := srv.GetItemMatchNum([]ItemValue{
 		{
 			ItemId:    1,
 			ItemValue: 1,
@@ -42,8 +41,8 @@ func TestOriginDeepSearch(t *testing.T) {
 }
 
 func TestDeepSearch(t *testing.T) {
-	srv := deepSearch.NewDeepSearch()
-	itemGroup := srv.GetItemMatchValue([]deepSearch.ItemValue{
+	srv := NewDeepSearch()
+	itemGroup := srv.GetItemMatchValue([]ItemValue{
 		{
 			ItemId:    1,
 			ItemValue: 1,
@@ -71,8 +70,8 @@ func TestDeepSearch(t *testing.T) {
 }
 
 func TestDeepSearchLimitNum(t *testing.T) {
-	srv := deepSearch.NewDeepSearch()
-	itemGroup := srv.GetItemMatchValueLimitNum([]deepSearch.ItemValue{
+	srv := NewDeepSearch()
+	itemGroup := srv.GetItemMatchValueLimitNum([]ItemValue{
 		{
 			ItemId:    1,
 			ItemValue: 1,
@@ -99,8 +98,8 @@ func TestDeepSearchLimitNum(t *testing.T) {
 	}
 }
 func TestDeepSearchInSection(t *testing.T) {
-	srv := deepSearch.NewDeepSearch()
-	itemGroup := srv.GetItemMatchValueInSection([]deepSearch.ItemValue{
+	srv := NewDeepSearch()
+	itemGroup := srv.GetItemMatchValueInSection([]ItemValue{
 		{
 			ItemId:    1,
 			ItemValue: 1,

@@ -7,7 +7,6 @@
 package file
 
 import (
-	"Go-Tool/util/file"
 	"fmt"
 	"testing"
 )
@@ -21,7 +20,7 @@ var (
 )
 
 func TestGetAllFileNameFromDir(t *testing.T) {
-	s := file.GetAllFileNameFromDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
+	s := GetAllFileNameFromDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
 
 	for _, row := range s {
 		fmt.Print(row)
@@ -29,7 +28,7 @@ func TestGetAllFileNameFromDir(t *testing.T) {
 }
 
 func TestGetAllEmptyDir(t *testing.T) {
-	_, s := file.GetAllEmptyDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
+	_, s := GetAllEmptyDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
 
 	for _, row := range s {
 		fmt.Print(fmt.Sprint(row, "\n\n"))
@@ -37,7 +36,7 @@ func TestGetAllEmptyDir(t *testing.T) {
 }
 
 func TestGetAllDir(t *testing.T) {
-	_, s := file.GetAllDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
+	_, s := GetAllDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
 
 	for _, row := range s {
 		fmt.Print(row)
@@ -45,7 +44,7 @@ func TestGetAllDir(t *testing.T) {
 }
 
 func TestGetAllNotEmptyDir(t *testing.T) {
-	_, s := file.GetAllNotEmptyDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
+	_, s := GetAllNotEmptyDir("F:\\Go个人代码\\src\\Go-Tool\\test\\emptyDirTest")
 
 	for _, row := range s {
 		fmt.Print(row)

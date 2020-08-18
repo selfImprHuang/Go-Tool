@@ -4,7 +4,7 @@
  *  @Description：背包道具
  */
 
-package KnapsackOptimization
+package knapsackOptimization
 
 type BagItem struct {
 	Value  int //道具价值
