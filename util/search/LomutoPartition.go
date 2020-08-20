@@ -11,7 +11,7 @@ package search
 //start : 开始比较的数字下标
 //end   ：结束比较的数字下标
 //作用说明：
-func partition(list []int, start int, end int) int {
+func LomutoPartition(list []int, start int, end int) int {
 	moveSubscript := start
 	compareValue := list[start]
 	for i := start + 1; i <= end; i++ {
@@ -27,13 +27,13 @@ func partition(list []int, start int, end int) int {
 func LomutoQuiteSelect(list []int, pointPosition int) int {
 	positionCheck(pointPosition, len(list)) //下标校验
 
-	nowPosition := partition(list, 0, len(list)-1)
+	nowPosition := LomutoPartition(list, 0, len(list)-1)
 	//循环进行lomuto划分处理,知道找到我们需要的那个位置的元素
 	for nowPosition != pointPosition-1 {
 		if nowPosition > pointPosition-1 {
-			nowPosition = partition(list, 0, nowPosition)
+			nowPosition = LomutoPartition(list, 0, nowPosition)
 		} else {
-			nowPosition = partition(list, nowPosition+1, len(list)-1)
+			nowPosition = LomutoPartition(list, nowPosition+1, len(list)-1)
 		}
 	}
 

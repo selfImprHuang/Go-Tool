@@ -13,13 +13,13 @@ import (
 
 func TestPartition(t *testing.T) {
 	list := []int{99, 1, 2, 3, 4, 100, 200, 90, 5}
-	s := partition(list, 0, 9-1)
+	s := LomutoPartition(list, 0, 9-1)
 	fmt.Println(fmt.Sprintf("当前第一个元素应该存在位置为：%d", s))
 	for _, r := range list {
 		fmt.Print(r, " ")
 	}
 
-	s = partition(list, 0, 9-1)
+	s = LomutoPartition(list, 0, 9-1)
 	fmt.Println(fmt.Sprintf("当前第一个元素应该存在位置为：%d", s))
 	for _, r := range list {
 		fmt.Print(r, " ")
