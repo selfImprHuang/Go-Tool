@@ -51,7 +51,7 @@ func (bitStore *BitStore) IsGearReceive(gear int) bool {
 		return false
 	}
 	position := bitStore.getGearPosition(gear, length)
-	return (bitStore.GearPickList[length-1] & (2 << position)) > 0
+	return (bitStore.GearPickList[length-1] & (1 << position)) > 0
 }
 
 //获取对应档位奖励
@@ -59,7 +59,7 @@ func (bitStore *BitStore) ReceiveByGear(gear int) ([]int, map[int]bool) {
 	bitStore.checkIfReceive(gear)                      //校验是否被领取了
 	length := bitStore.dynamicGrowth(gear)             //数组进行动态增长
 	position := bitStore.getGearPosition(gear, length) //获取档位在数组中的位数位置
-	bitStore.GearPickList[length-1] = bitStore.GearPickList[length-1] + (2 << uint(position))
+	bitStore.GearPickList[length-1] = bitStore.GearPickList[length-1] + (1 << uint(position))
 	return bitStore.GearPickList, bitStore.FindAllGearMap()
 }
 
@@ -91,7 +91,7 @@ func (bitStore *BitStore) fullListDeal(listSize int, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < length; i++ {
 		for j := 0; j < bit && bitStore.MaxGear > i*bit+j; j++ {
-			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (2 << uint(j))) > 0
+			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	return resultMap
@@ -101,7 +101,7 @@ func (bitStore *BitStore) shortListDeal(listSize, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < listSize; i++ {
 		for j := 0; j < bit; j++ {
-			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (2 << uint(j))) > 0
+			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	for i := listSize; i < length; i++ {

@@ -6,6 +6,11 @@
 
 package search
 
+var (
+	times  = 0 //用来计算一次划分进行了多少次的比较操作
+	charge = 0 //实际进行元素交换的次数
+)
+
 //参数说明：
 //list  ：数组
 //start : 开始比较的数字下标
@@ -17,19 +22,25 @@ func LomutoPartition(list []int, start int, end int) int {
 	for i := start + 1; i <= end; i++ {
 		if list[i] < compareValue {
 			moveSubscript++
+			charge++
 			list[moveSubscript], list[i] = list[i], list[moveSubscript]
 		}
 	}
+	charge++
 	list[moveSubscript], list[start] = list[start], list[moveSubscript] //交换元素
 	return moveSubscript
 }
 
-func LomutoQuiteSelect(list []int, pointPosition int) int {
+func LomutoQuiteSelect(list []int, pointPosition int) (int, int, int) {
 	positionCheck(pointPosition, len(list)) //下标校验
+	times = 0
+	charge = 0
 
 	nowPosition := LomutoPartition(list, 0, len(list)-1)
+	times++
 	//循环进行lomuto划分处理,知道找到我们需要的那个位置的元素
 	for nowPosition != pointPosition-1 {
+		times++
 		if nowPosition > pointPosition-1 {
 			nowPosition = LomutoPartition(list, 0, nowPosition)
 		} else {
@@ -37,7 +48,7 @@ func LomutoQuiteSelect(list []int, pointPosition int) int {
 		}
 	}
 
-	return list[nowPosition]
+	return list[nowPosition], times, charge
 }
 
 func positionCheck(pointPosition int, len int) {
