@@ -1,2 +1,4 @@
+# github.com/ahmetalpbalkan/go-linq v2.0.0-rc0+incompatible
+github.com/ahmetalpbalkan/go-linq
 # github.com/go-ini/ini v1.57.0
 github.com/go-ini/ini

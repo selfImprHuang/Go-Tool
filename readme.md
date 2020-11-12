@@ -54,6 +54,8 @@
 
 2020/11/9: 新增lomute划分算法效率单测,结果：多次查找，元素多的情况下由末尾开始查找效率更高
 
+2020/11/12:新增linq包使用示例(未完成)
+
 
 # mod vendor模式加载包
 通过go mod的方式加载的github上面的包会有报红的问题，但是包本身是可以运行的，这样就是会有一个问题，如果你想要点击去看方法的内容，没办法做到
@@ -64,4 +66,7 @@
 
 处理步骤如下 ：
 - 通过 go get github.com/kardianos/govendor 命令下载govendor命令
+- 把vendor文件夹删除了
 - 通过 go mod vendor 切换到vendor管理
+- 在文件中import引用对应的路径
+- vendor加载对应的包
