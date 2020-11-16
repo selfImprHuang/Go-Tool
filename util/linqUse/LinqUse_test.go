@@ -29,8 +29,21 @@ func Test(t *testing.T) {
 
 	//Combine(query) //组合两个数组的两种方式
 
-	//fmt.Println(fmt.Sprintf("跳过三个元素，返回的数组中包含%d个元素", len(query.Skip(3).Results())))
-	//fmt.Println(fmt.Sprintf("跳过发布时间在2020.1.1之前的元素，返回的数组中包含%d个元素", len(query.SkipWhile(PublishTimeBeforeFunc).Results())))
+	fmt.Println(fmt.Sprintf("跳过三个元素，返回的数组中包含%d个元素", len(query.Skip(3).Results())))
+	fmt.Println(fmt.Sprintf("跳过发布时间在2020.1.1之前的元素，返回的数组中包含%d个元素", len(query.SkipWhile(PublishTimeBeforeFunc).Results()))) //这个方法好像有问题，没办法过滤
+	author := make([]string, 0)
+	query.Select(func(book interface{}) interface{} {
+		return book.(Book).Author
+	}).ToSlice(&author)
+	fmt.Println(author)
+	query1 := linq.From([][]Book{bookList, bookList})
+	query1.SelectMany(func(query interface{}) linq.Query {
+		fmt.Println(query)
+		return linq.From(query)
+	}).Select(func(book interface{}) interface{} {
+		return book.(Book).Author
+	}).ToSlice(&author)
+	fmt.Println(author)
 
 	//Contains(query) //判断数组中是否包含某个元素
 	//query.CountWith()

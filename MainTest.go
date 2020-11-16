@@ -7,23 +7,27 @@
 package main
 
 import (
-	"Go-Tool/util"
 	"Go-Tool/util/reflectM"
 	"fmt"
+	"math"
 	"reflect"
 )
 
 func main() {
-	fmt.Println(util.Crc32Mode("ewqeqweqw", 4))
-	fmt.Println(util.Crc32Mode("sdasdsa", 4))
-	fmt.Println(util.Crc32Mode("dasdsadasdas", 4))
-	fmt.Println(util.Crc32Mode("321321312", 4))
-	fmt.Println(util.Crc32Mode("dsadas", 4))
-	fmt.Println(util.Crc32Mode("dasd23132131", 4))
-	fmt.Println(util.Crc32Mode("eqwewqewqd4312312", 4))
-	fmt.Println(util.Crc32Mode("3123213dasdasdas", 4))
-	fmt.Println(util.Crc32Mode("312321dfdsfsdg", 4))
-	fmt.Println(util.Crc32Mode("ewqrewrqwe", 4))
+	//fmt.Println(util.Crc32Mode("ewqeqweqw", 4))
+	//fmt.Println(util.Crc32Mode("sdasdsa", 4))
+	//fmt.Println(util.Crc32Mode("dasdsadasdas", 4))
+	//fmt.Println(util.Crc32Mode("321321312", 4))
+	//fmt.Println(util.Crc32Mode("dsadas", 4))
+	//fmt.Println(util.Crc32Mode("dasd23132131", 4))
+	//fmt.Println(util.Crc32Mode("eqwewqewqd4312312", 4))
+	//fmt.Println(util.Crc32Mode("3123213dasdasdas", 4))
+	//fmt.Println(util.Crc32Mode("312321dfdsfsdg", 4))
+	//fmt.Println(util.Crc32Mode("ewqrewrqwe", 4))
+	fmt.Println(int(math.Ceil(1.1)))
+	fmt.Println(int(math.Ceil(1.6)))
+	fmt.Println(int(math.Floor(1.1)))
+	fmt.Println(int(math.Floor(1.6)))
 	//testReflect()
 }
 

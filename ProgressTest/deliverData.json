@@ -1,0 +1,504 @@
+{
+  "Deliver": [
+    {
+      "Score": 1,
+      "AllScore": 20000,
+      "Id": 1
+    },
+    {
+      "Score": 23,
+      "AllScore": 4321423,
+      "Id": 5
+    },
+    {
+      "Score": 19,
+      "AllScore": 43214,
+      "Id": 3
+    },
+    {
+      "Score": 39,
+      "AllScore": 41324,
+      "Id": 12
+    },
+    {
+      "Score": 41,
+      "AllScore": 2314,
+      "Id": 55
+    },
+    {
+      "Score": 42,
+      "AllScore": 654,
+      "Id": 23
+    },
+    {
+      "Score": 49,
+      "AllScore": 765,
+      "Id": 16
+    },
+    {
+      "Score": 98,
+      "AllScore": 7876,
+      "Id": 57
+    },
+    {
+      "Score": 88,
+      "AllScore": 8909,
+      "Id": 77
+    },
+    {
+      "Score": 77,
+      "AllScore": 4532,
+      "Id": 89
+    },
+    {
+      "Score": 341,
+      "AllScore": 356536,
+      "Id": 24
+    },
+    {
+      "Score": 123,
+      "AllScore": 67456,
+      "Id": 19
+    },
+    {
+      "Score": 67,
+      "AllScore": 8768,
+      "Id": 31
+    },
+    {
+      "Score": 33,
+      "AllScore": 457,
+      "Id": 80
+    },
+    {
+      "Score": 32,
+      "AllScore": 76,
+      "Id": 98
+    },
+    {
+      "Score": 43,
+      "AllScore": 6787,
+      "Id": 100
+    },
+    {
+      "Score": 45,
+      "AllScore": 8756,
+      "Id": 121
+    },
+    {
+      "Score": 89,
+      "AllScore": 98765,
+      "Id": 114
+    },
+    {
+      "Score": 55,
+      "AllScore": 234,
+      "Id": 117
+    },
+    {
+      "Score": 56,
+      "AllScore": 8765,
+      "Id": 135
+    },
+    {
+      "Score": 90,
+      "AllScore": 345,
+      "Id": 201
+    },
+    {
+      "Score": 135,
+      "AllScore": 456543,
+      "Id": 331
+    },
+    {
+      "Score": 56,
+      "AllScore": 6354677,
+      "Id": 156
+    },
+    {
+      "Score": 54,
+      "AllScore": 8765,
+      "Id": 178
+    },
+    {
+      "Score": 34,
+      "AllScore": 42352,
+      "Id": 891
+    },
+    {
+      "Score": 21,
+      "AllScore": 24359,
+      "Id": 444
+    },
+    {
+      "Score": 45,
+      "AllScore": 8735,
+      "Id": 333
+    },
+    {
+      "Score": 23,
+      "AllScore": 68477,
+      "Id": 251
+    },
+    {
+      "Score": 47,
+      "AllScore": 847645,
+      "Id": 1
+    },
+    {
+      "Score": 69,
+      "AllScore": 76536,
+      "Id": 1455
+    },
+    {
+      "Score": 67,
+      "AllScore": 7654352,
+      "Id": 1871
+    },
+    {
+      "Score": 48,
+      "AllScore": 36356,
+      "Id": 1980
+    },
+    {
+      "Score": 47,
+      "AllScore": 635763,
+      "Id": 2001
+    },
+    {
+      "Score": 45,
+      "AllScore": 365436,
+      "Id": 2100
+    },
+    {
+      "Score": 12,
+      "AllScore": 63422,
+      "Id": 2381
+    },
+    {
+      "Score": 16,
+      "AllScore": 35654,
+      "Id": 7
+    },
+    {
+      "Score": 14,
+      "AllScore": 635634,
+      "Id": 391
+    },
+    {
+      "Score": 12,
+      "AllScore": 63542,
+      "Id": 781
+    },
+    {
+      "Score": 11,
+      "AllScore": 63553,
+      "Id": 171
+    },
+    {
+      "Score": 99,
+      "AllScore": 8758768,
+      "Id": 392
+    },
+    {
+      "Score": 88,
+      "AllScore": 97658,
+      "Id": 511
+    },
+    {
+      "Score": 77,
+      "AllScore": 87576,
+      "Id": 501
+    },
+    {
+      "Score": 66,
+      "AllScore": 85675867,
+      "Id": 1819
+    },
+    {
+      "Score": 55,
+      "AllScore": 412343,
+      "Id": 1971
+    },
+    {
+      "Score": 44,
+      "AllScore": 314232,
+      "Id": 1333
+    },
+    {
+      "Score": 33,
+      "AllScore": 3211324,
+      "Id": 1555
+    },
+    {
+      "Score": 22,
+      "AllScore": 4132421,
+      "Id": 2221
+    },
+    {
+      "Score": 43,
+      "AllScore": 65437,
+      "Id": 17777
+    },
+    {
+      "Score": 12,
+      "AllScore": 76444,
+      "Id": 4411
+    },
+    {
+      "Score": 86,
+      "AllScore": 8976,
+      "Id": 5111
+    },
+    {
+      "Score": 55,
+      "AllScore": 98467,
+      "Id": 18821
+    },
+    {
+      "Score": 98,
+      "AllScore": 765265,
+      "Id": 11771
+    },
+    {
+      "Score": 67,
+      "AllScore": 54235,
+      "Id": 15666
+    },
+    {
+      "Score": 78,
+      "AllScore": 52345,
+      "Id": 18912
+    },
+    {
+      "Score": 67,
+      "AllScore": 523452,
+      "Id": 10912
+    },
+    {
+      "Score": 34,
+      "AllScore": 523452,
+      "Id": 18712
+    },
+    {
+      "Score": 12,
+      "AllScore": 565764,
+      "Id": 166271
+    },
+    {
+      "Score": 50,
+      "AllScore": 87654,
+      "Id": 1909342
+    },
+    {
+      "Score": 36,
+      "AllScore": 475647,
+      "Id": 118223
+    },
+    {
+      "Score": 49,
+      "AllScore": 875658,
+      "Id": 82178
+    },
+    {
+      "Score": 54,
+      "AllScore": 857346,
+      "Id": 341223
+    },
+    {
+      "Score": 21,
+      "AllScore": 745674,
+      "Id": 31321
+    },
+    {
+      "Score": 56,
+      "AllScore": 74674567,
+      "Id": 98897
+    },
+    {
+      "Score": 12,
+      "AllScore": 745746,
+      "Id": 1891
+    },
+    {
+      "Score": 98,
+      "AllScore": 9879875,
+      "Id": 103921
+    },
+    {
+      "Score": 64,
+      "AllScore": 7446,
+      "Id": 1784671
+    },
+    {
+      "Score": 77,
+      "AllScore": 456746,
+      "Id": 1903213
+    },
+    {
+      "Score": 7,
+      "AllScore": 52345423,
+      "Id": 19123312
+    },
+    {
+      "Score": 4,
+      "AllScore": 2543252,
+      "Id": 1012813
+    },
+    {
+      "Score": 2,
+      "AllScore": 413243124,
+      "Id": 167316312
+    },
+    {
+      "Score": 1,
+      "AllScore": 41324,
+      "Id": 19321321
+    },
+    {
+      "Score": 12,
+      "AllScore": 5234,
+      "Id": 132144
+    },
+    {
+      "Score": 99,
+      "AllScore": 1234124,
+      "Id": 13215467
+    },
+    {
+      "Score": 100,
+      "AllScore": 43214,
+      "Id": 195342
+    },
+    {
+      "Score": 90,
+      "AllScore": 43214,
+      "Id": 1098768634
+    },
+    {
+      "Score": 78,
+      "AllScore": 43124132,
+      "Id": 108698
+    },
+    {
+      "Score": 56,
+      "AllScore": 54325,
+      "Id": 1098734
+    },
+    {
+      "Score": 89,
+      "AllScore": 65354,
+      "Id": 13432112
+    },
+    {
+      "Score": 78,
+      "AllScore": 63543,
+      "Id": 1343465
+    },
+    {
+      "Score": 65,
+      "AllScore": 4676745,
+      "Id": 17657786
+    },
+    {
+      "Score": 31,
+      "AllScore": 47647,
+      "Id": 13542354
+    },
+    {
+      "Score": 55,
+      "AllScore": 8476545,
+      "Id": 142365676
+    },
+    {
+      "Score": 31,
+      "AllScore": 1000,
+      "Id": 135467
+    },
+    {
+      "Score": 67,
+      "AllScore": 6357854,
+      "Id": 1658658
+    },
+    {
+      "Score": 12,
+      "AllScore": 653535,
+      "Id": 1523456324
+    },
+    {
+      "Score": 56,
+      "AllScore": 655462,
+      "Id": 17654899
+    },
+    {
+      "Score": 12,
+      "AllScore": 635,
+      "Id": 10009767
+    },
+    {
+      "Score": 65,
+      "AllScore": 365342,
+      "Id": 1568534
+    },
+    {
+      "Score": 55,
+      "AllScore": 63556,
+      "Id": 11324136
+    },
+    {
+      "Score": 89,
+      "AllScore": 63553,
+      "Id": 108768745
+    },
+    {
+      "Score": 98,
+      "AllScore": 76245,
+      "Id": 122213241
+    },
+    {
+      "Score": 87,
+      "AllScore": 76467,
+      "Id": 21343441
+    },
+    {
+      "Score": 54,
+      "AllScore": 76467,
+      "Id": 43232131
+    },
+    {
+      "Score": 12,
+      "AllScore": 1000,
+      "Id": 7654761
+    },
+    {
+      "Score": 45,
+      "AllScore": 635765,
+      "Id": 78689231
+    },
+    {
+      "Score": 27,
+      "AllScore": 635346,
+      "Id": 987653121
+    },
+    {
+      "Score": 19,
+      "AllScore": 3653,
+      "Id": 76321111
+    },
+    {
+      "Score": 54,
+      "AllScore": 6543,
+      "Id": 923438321
+    },
+    {
+      "Score": 21,
+      "AllScore": 543254423,
+      "Id": 9034241321
+    },
+    {
+      "Score": 18,
+      "AllScore": 43124321,
+      "Id": 9432143211
+    }
+  ]
+}
