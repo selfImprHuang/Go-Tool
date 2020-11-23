@@ -6,7 +6,7 @@
 
 package ProgressTest
 
-import "github.com/ahmetalpbalkan/go-linq"
+import "github.com/ahmetb/go-linq"
 
 type orderRule = func([]*Deliver) []*Deliver
 type intOrderRule = func([]*Deliver) [][]int

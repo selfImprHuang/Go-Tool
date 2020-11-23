@@ -1,7 +1,7 @@
 /*
  *  @Author : huangzj
  *  @Time : 2020/11/13 12:00
- *  @Description：在工程中有一个需求是对 指定数量的数组进行划分，按照每一层的规则分成对应数量，这边做一个测试.
+ *  @Description：在工程中有一个需求是对 指定数量的数组进行划分，按照每一层的规则分成对应数量，这边做一个测试.(这种方式写的代码太麻烦了，直接废弃，后面有机会再弄)
  */
 
 package ProgressTest
@@ -9,7 +9,7 @@ package ProgressTest
 import (
 	"Go-Tool/util/rand"
 	"fmt"
-	"github.com/ahmetalpbalkan/go-linq"
+	"github.com/ahmetb/go-linq"
 	"testing"
 )
 

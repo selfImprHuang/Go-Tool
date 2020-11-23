@@ -9,13 +9,14 @@ package ProgressTest
 import (
 	"Go-Tool/util/rand"
 	"fmt"
+	_ "github.com/ahmetb/go-linq"
 	"math"
 	"testing"
 )
 
 const (
 	MinGroupNum = 10
-	MaxGroupNum = 80
+	MaxGroupNum = 30
 )
 
 //需求(直接举例)：
@@ -26,22 +27,16 @@ const (
 //第四步：40每组的数据，要分成最后的10 * 4 的4组，按照每次取前5再随机取5个组成一组的方式组成4组
 //第五步：不足4组的，按照取前5和随机5个的方式进行分组
 func TestDeliver2(t *testing.T) {
-
-	firstOrderRule = FirstOrderRule
-	secondOrderRule = SecondOrderRule
-	thirdOrderRule = ThirdOrderRule
-
-	list := MakeData()                   //创建数据
-	resultList := deliver2(list.Deliver) //进行分组操作
+	dataList := MakeData()                   //创建数据
+	resultList := deliver2(dataList.Deliver) //进行分组操作
 	fmt.Printf(fmt.Sprintf("%v", resultList))
 }
 
 func deliver2(delivers []*Deliver) [][]int {
-
 	resultList := make([][]int, 0)
 	newDelivers := make([]*Deliver, 0)
 	//获得第一次按照大区间分组后剩下的元素数量、第一次分组所有组、分到的大组数量
-	leaveNum, partitions, partition := FirstOrder(delivers, newDelivers)
+	leaveNum, partitions, partition, newDelivers := FirstOrder(delivers, newDelivers)
 
 	resultList = withCompletePartition(partitions, resultList)                    //对完整的分组进行处理
 	resultList = withLeavePartition(resultList, newDelivers, leaveNum, partition) //对剩余的分组进行处理
@@ -63,7 +58,7 @@ func withCompletePartition(partitions [][]*Deliver, resultList [][]int) [][]int 
 	return resultList
 }
 
-func FirstOrder(delivers []*Deliver, newDelivers []*Deliver) (int, [][]*Deliver, int) {
+func FirstOrder(delivers []*Deliver, newDelivers []*Deliver) (int, [][]*Deliver, int, []*Deliver) {
 	newDelivers = firstOrderRule(delivers) //第一次排序
 	partition := len(newDelivers) / MaxGroupNum
 	leaveNum := len(newDelivers) % MaxGroupNum
@@ -72,25 +67,29 @@ func FirstOrder(delivers []*Deliver, newDelivers []*Deliver) (int, [][]*Deliver,
 	for i := 0; i < partition; i++ {
 		partitions = append(partitions, newDelivers[i*MaxGroupNum:(i+1)*MaxGroupNum])
 	}
-	return leaveNum, partitions, partition
+	return leaveNum, partitions, partition, newDelivers
 }
 
 func secondOrder(delivers []*Deliver, resultList [][]int, listNum int) [][]int {
 	newDelivers := secondOrderRule(delivers) //第二次排序
 
 	if listNum > 4*MinGroupNum {
-		fourInOne := listNum / (4 * MinGroupNum)
-		leave := listNum % (4 * MinGroupNum)
-
-		for i := 0; i < fourInOne; i++ {
-			resultList = append(resultList, calculateFourInOne(newDelivers[i*4*MinGroupNum:(i+1)*4*MinGroupNum])...) //四倍在一组的计算
-		}
-
-		if leave != 0 {
-			resultList = append(resultList, calculateByLeft(toList(newDelivers[fourInOne*4*MinGroupNum:]))...)
-		}
+		resultList = moreThenFour(listNum, resultList, newDelivers) //大于4倍区间的处理
 	} else {
-		resultList = append(resultList, calculateByLeft(toList(newDelivers))...)
+		resultList = append(resultList, calculateByLeft(thirdOrderRule(newDelivers))...)
+	}
+	return resultList
+}
+
+func moreThenFour(listNum int, resultList [][]int, newDelivers []*Deliver) [][]int {
+	fourInOne := listNum / (4 * MinGroupNum)
+	leave := listNum % (4 * MinGroupNum)
+
+	for i := 0; i < fourInOne; i++ {
+		resultList = append(resultList, calculateByLeft(thirdOrderRule(newDelivers[i*4*MinGroupNum:(i+1)*4*MinGroupNum]))...) //四倍在一组的计算
+	}
+	if leave != 0 {
+		resultList = append(resultList, calculateByLeft(thirdOrderRule(newDelivers[fourInOne*4*MinGroupNum:]))...)
 	}
 	return resultList
 }
@@ -100,12 +99,6 @@ func toList(deliver []*Deliver) [][]int {
 	for _, item := range deliver {
 		result = append(result, []int{item.Score, 1})
 	}
-	return result
-}
-
-func calculateFourInOne(delivers []*Deliver) [][]int {
-	Ids := thirdOrderRule(delivers) //第三次排序
-	result := calculateByLeft(Ids)
 	return result
 }
 
@@ -137,4 +130,12 @@ func getFirstSome(list [][]int) []int {
 
 func getFrontAndEnd(leftList [][]int) ([]int, [][]int) {
 	return rand.GetAwardByWeightWithLeftAward(leftList)
+}
+
+func init() {
+	//初始化排序规则
+	firstOrderRule = FirstOrderRule
+	secondOrderRule = SecondOrderRule
+	thirdOrderRule = ThirdOrderRule
+
 }

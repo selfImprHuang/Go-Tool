@@ -8,7 +8,7 @@ package ProgressTest
 
 import (
 	"Go-Tool/util/file"
-	"Go-Tool/util/jsonEnhance"
+	"encoding/json"
 )
 
 type DeliverList struct {
@@ -24,6 +24,6 @@ type Deliver struct {
 func MakeData() DeliverList {
 	var deliver DeliverList
 	content, _ := file.ReadJsonFile("F:\\Go_BySelf\\src\\Go-Tool\\ProgressTest\\deliverData.json")
-	jsonEnhance.UnmarshalFromString(content, &deliver)
+	_ = json.Unmarshal([]byte(content), &deliver)
 	return deliver
 }
