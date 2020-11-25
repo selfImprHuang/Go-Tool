@@ -69,3 +69,59 @@ func MakeBook() []Book {
 	})
 	return bookList
 }
+
+func MakeBook1() []Book {
+	bookList := make([]Book, 0)
+	bookList = append(bookList, Book{
+		Name:        "Go语言",
+		Author:      "Go",
+		Money:       100,
+		WordsNum:    1000,
+		PublishTime: time.Date(2020, 1, 1, 10, 0, 0, 0, time.Local),
+	})
+	bookList = append(bookList, Book{
+		Name:        "Effective Java",
+		Author:      "Java",
+		Money:       78,
+		WordsNum:    9000,
+		PublishTime: time.Date(2020, 2, 15, 10, 0, 0, 0, time.Local),
+	})
+	bookList = append(bookList, Book{
+		Name:        "Go语言(第二版)",
+		Author:      "Go",
+		Money:       50,
+		WordsNum:    3000,
+		PublishTime: time.Date(2020, 2, 1, 10, 0, 0, 0, time.Local),
+	})
+	return bookList
+}
+func MakeBook2() []Book {
+	bookList := make([]Book, 0)
+	bookList = append(bookList, Book{
+		Name:        "Go语言",
+		Author:      "Go",
+		Money:       100,
+		WordsNum:    1000,
+		PublishTime: time.Date(2020, 1, 1, 10, 0, 0, 0, time.Local),
+	})
+	return bookList
+}
+
+func MakeBook3() []Book {
+	bookList := make([]Book, 0)
+	bookList = append(bookList, Book{
+		Name:        "Go语言",
+		Author:      "Go",
+		Money:       100,
+		WordsNum:    1000,
+		PublishTime: time.Date(2020, 1, 1, 10, 0, 0, 0, time.Local),
+	})
+	bookList = append(bookList, Book{
+		Name:        "Go语言(第三版)",
+		Author:      "Go",
+		Money:       50,
+		WordsNum:    3000,
+		PublishTime: time.Date(2020, 2, 1, 10, 0, 0, 0, time.Local),
+	})
+	return bookList
+}

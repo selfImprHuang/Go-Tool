@@ -10,7 +10,7 @@ import "time"
 
 //书籍发布时间是否早于--.--.--
 var PublishTimeBeforeFunc = func(thisBook interface{}) bool {
-	if thisBook.(Book).PublishTime.Before(time.Date(2020, 1, 1, 0, 0, 0, 0, time.Local)) {
+	if thisBook.(Book).PublishTime.Before(time.Date(2019, 1, 1, 0, 0, 0, 0, time.Local)) {
 		return true
 	}
 	return false
@@ -34,7 +34,7 @@ var PublishTimeAfterFunc2 = func(thisBook interface{}) bool {
 
 //自定义聚合操作方法
 var AggregateFunc = func(first interface{}, second interface{}) interface{} {
-	if first.(Book).PublishTime.Before(second.(*Book).PublishTime) {
+	if first.(Book).PublishTime.Before(second.(Book).PublishTime) {
 		return first
 	}
 	return second
