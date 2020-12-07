@@ -20,39 +20,58 @@ import (
 
 func Test(t *testing.T) {
 
-	//Aggregate() //自定义聚合操作
+	Aggregate() //自定义聚合操作
 
-	//All() //判断数组的所有元素是否都满足条件
+	All() //判断数组的所有元素是否都满足条件
 
-	//AnyWith() //判断数组是否有任意个元素满足条件
+	Where() //根据条件查询对应的元素
 
-	//Calculate() //这个方法只能计算数值类型
+	AnyWith() //判断数组是否有任意个元素满足条件
 
-	//Combine() //组合两个数组的两种方式
+	Calculate() //这个方法只能计算数值类型
 
-	//Distinct() //返回数组中唯一的元素
+	Combine() //组合两个数组的两种方式
 
-	//Except() //返回第一个序列没有出现在第二个序列中的成员
+	Contains() //包含
 
-	//GroupBy() //按照对应规则进行分组
+	FirstAndLast() //第一个和最后一个
 
-	//Intersect() //产生两个数组的交集
+	Distinct() //返回数组中唯一的元素
 
-	//Join() //对两个有关联的数据进行处理
+	Except() //返回第一个序列没有出现在第二个序列中的成员
 
-	//OrderBy() //排序
+	GroupBy() //按照对应规则进行分组
 
-	//Select() //筛选结构体中对应的元素
+	Intersect() //产生两个数组的交集
 
-	//SelectMany() //对多维数组进行合并或者其他处理 对结构体中的数组进行处理(与结构体结合操作)
+	OrderBy() //排序
 
-	//Skip() //略过指定条件的元素
+	Skip() //略过指定条件的元素
 
-	//Count() //计算数组总长度
+	Count() //计算数组总长度
 
-	//Result() //对结果集进行操作
+	Result() //对结果集进行操作
 
 	Take() //获取对应数量的元素，一般多用在排序后前几个的元素
+
+	Select() //筛选结构体中对应的元素
+
+	SelectMany() //对多维数组进行合并或者其他处理 对结构体中的数组进行处理(与结构体结合操作)
+
+	Join() //对两个有关联的数据进行处理
+
+}
+
+func Where() {
+	bookList := MakeBook()
+	query := linq.From(bookList)
+	fmt.Println()
+	fmt.Println()
+	query.WhereT(func(book Book) bool {
+		return book.Money > float64(70)
+	}).ForEachT(func(book Book) {
+		fmt.Println(fmt.Sprintf("作者%v，写了一本书叫做%v", book.Author, book.Name))
+	})
 }
 
 func Take() {
@@ -80,6 +99,16 @@ func Take() {
 	query.OrderByDescendingT(func(book Book) string {
 		return book.Author
 	}).Take(-2).ForEachT(func(book Book) {
+		fmt.Println(fmt.Sprintf("作者%v，写了一本书叫做%v", book.Author, book.Name))
+	})
+
+	//TakeWhile系列的方法，虽然能够根据条件进行查询，但是有一个弊端就是一旦查询到的结果和条件不符合则直接返回，也就是说后面满足条件的元素不会再被做筛选
+	//那么比如这边的这个大于的操作，就需要对整个数组进行排序之后然后进行筛选，如果不希望排序，则用原生的for循环可能会更好
+	fmt.Println()
+	fmt.Println()
+	query.TakeWhileT(func(book Book) bool {
+		return book.Money > float64(70)
+	}).ForEachT(func(book Book) {
 		fmt.Println(fmt.Sprintf("作者%v，写了一本书叫做%v", book.Author, book.Name))
 	})
 }
@@ -135,6 +164,16 @@ func Result() {
 
 	for key, value := range bookMap2 {
 		fmt.Println(fmt.Sprintf("作者%v，写了一本书叫做%v", key, value.Name))
+	}
+
+	fmt.Println()
+	fmt.Println()
+	bookListResult := make([]Book, 0)
+	linq.From(MakeBook()).OrderByDescendingT(func(book Book) string {
+		return book.Author
+	}).ToSlice(&bookListResult)
+	for _, value := range bookListResult {
+		fmt.Println(fmt.Sprintf("作者%v，写了一本书叫做%v", value.Author, value.Name))
 	}
 }
 
@@ -430,15 +469,19 @@ func Combine() {
 	fmt.Println(fmt.Sprintf("第一个元素是%v", query2.First()))
 }
 
-func FirstAndLast(query linq.Query) {
+func FirstAndLast() {
+	bookList := MakeBook()
+	query := linq.From(bookList)
 	fmt.Println(fmt.Sprintf("数组第一本书书名叫:%s", query.First().(Book).Name))
-	fmt.Println(fmt.Sprintf("数组第一本书发布时间在2020年1月1号之前的书书名叫:%s", query.FirstWith(PublishTimeBeforeFunc).(Book).Name))
+	fmt.Println(fmt.Sprintf("数组第一本书发布时间在2018年1月1号之后的书书名叫:%s", query.FirstWith(PublishTimeAfterFunc).(Book).Name))
 
 	fmt.Println(fmt.Sprintf("数组最后一本书书名叫:%s", query.Last().(Book).Name))
-	fmt.Println(fmt.Sprintf("数组最后一本书发布时间在2020年1月1号之前的书书名叫:%s", query.LastWith(PublishTimeBeforeFunc).(Book).Name))
+	fmt.Println(fmt.Sprintf("数组最后一本书发布时间在2018年1月1号之后的书书名叫:%s", query.LastWith(PublishTimeAfterFunc).(Book).Name))
 }
 
-func Contains(query linq.Query) {
+func Contains() {
+	bookList := MakeBook()
+	query := linq.From(bookList)
 	//这边需要注意是的是如果要判断两个元素是否相等，在go里面不能使用元素的地址
 	// 所以这边加到query里面的必须不能是元素的地址，否则没办法比较结构体本身，而是比较结构体的地址
 	fmt.Println(fmt.Sprintf("判断当前数组是否包含相同的元素,判断的是所有的值，而不是地址，结果是%v", query.Contains(Book{
