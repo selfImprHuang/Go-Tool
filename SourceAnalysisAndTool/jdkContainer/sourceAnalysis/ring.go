@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // Package ring implements operations on circular lists.
-package SourceAnalysis
+package sourceAnalysis
 
 // A Ring is an element of a circular list, or ring.
 // Rings do not have a beginning or end; a pointer to any ring element

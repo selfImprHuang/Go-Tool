@@ -9,7 +9,7 @@
 //		// do something with e.Value
 //	}
 //
-package SourceAnalysis
+package sourceAnalysis
 
 // Element is an element of a linked list.
 //read note list中对应的元素,list相当是通过一个链表来链接所有的Element元素.

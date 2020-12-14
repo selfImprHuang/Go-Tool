@@ -15,7 +15,7 @@
 // implementation; the file example_pq_test.go has the complete source.
 //
 //read note 拷贝一个代码过来解析.感觉在go里面拷贝代码简单多了，依赖可以直接使用。我在这边使用read note(自定义todo标识)来标识我的解析.
-package SourceAnalysis
+package sourceAnalysis
 
 import "sort"
 
