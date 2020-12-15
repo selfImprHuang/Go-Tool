@@ -8,12 +8,27 @@ package set
 
 import "sync"
 
+type ISet interface {
+	Add(i interface{})
+	AddAll(list ...interface{})
+	Remove(i interface{})
+	Contains(i interface{}) bool
+	IsEmpty() bool
+	GetAllSet() []interface{}
+}
+
 type Set struct {
 	setMap sync.Map //用来存储元素的map
 }
 
 func (set *Set) Add(i interface{}) {
 	set.setMap.Store(i, nil)
+}
+
+func (set *Set) AddAll(list ...interface{}) {
+	for _, item := range list {
+		set.Add(item)
+	}
 }
 
 func (set *Set) Remove(i interface{}) {
