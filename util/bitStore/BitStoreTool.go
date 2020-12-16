@@ -72,7 +72,7 @@ func (bitStore *BitStore) checkGearRight(gear int) {
 
 //获取当前档位对应的数组长度（这边的length是从1开始的.）
 func (bitStore *BitStore) getGearListLength(gear int) int {
-	return (gear + bit - 1) / bit
+	return (gear + bit) / bit
 }
 
 //获取档位所在的二进制位置

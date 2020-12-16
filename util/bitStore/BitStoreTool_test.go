@@ -9,6 +9,7 @@ package bitStore
 import (
 	"Go-Tool/util/sort"
 	"fmt"
+	"math"
 	"testing"
 )
 
@@ -201,5 +202,42 @@ func TestTwo(t *testing.T) {
 	gearMap1 := bitStore.FindAllGearMap()
 	for key, value := range gearMap1 {
 		fmt.Println(fmt.Sprintf("当前map的key为%d,当前map的value为%v", key, value))
+	}
+}
+
+//测试溢出
+func TestOverflow(t *testing.T) {
+	bitStore := NewBitStore(31, nil)
+	for i := 1; i <= 31; i++ {
+		bitStore.ReceiveByGear(i)
+	}
+
+	fmt.Println(fmt.Sprintf("MaxInt32 = %v", math.MaxInt32))
+
+	for _, r := range bitStore.GearPickList {
+		fmt.Println(r)
+	}
+
+	bitStore = NewBitStore(32, nil)
+	for i := 1; i <= 32; i++ {
+		bitStore.ReceiveByGear(i)
+	}
+
+	for _, r := range bitStore.GearPickList {
+		fmt.Println(r)
+	}
+
+	bitStore = NewBitStore(33, nil)
+	for i := 1; i <= 33; i++ {
+		bitStore.ReceiveByGear(i)
+	}
+
+	fmt.Println("数组信息")
+	for _, r := range bitStore.GearPickList {
+		fmt.Println(r)
+	}
+
+	for key, value := range bitStore.FindAllGearMap() {
+		fmt.Println(key, value)
 	}
 }
