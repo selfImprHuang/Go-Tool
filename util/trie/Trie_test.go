@@ -11,14 +11,8 @@ import (
 	"testing"
 )
 
-func TestTrie(t *testing.T) {
-	commonTest()         //常规功能测试
-	sensitiveWordsTest() //敏感词汇屏蔽测试
-	searchTrie()         //查找前缀匹配的所有字符串
-	searchTrieVague()    //模糊查询前缀匹配的所有字符串
-}
-
-func searchTrieVague() {
+//模糊查询前缀匹配的所有字符串
+func TestSearchTrieVague(t *testing.T) {
 	fmt.Println()
 	fmt.Println("模糊查询 查找前缀匹配的所有字符串")
 	trie := New()
@@ -34,7 +28,8 @@ func searchTrieVague() {
 	}
 }
 
-func searchTrie() {
+//查找前缀匹配的所有字符串
+func TestSearchTrie(t *testing.T) {
 	fmt.Println()
 	fmt.Println("查找前缀匹配的所有字符串")
 	trie := New()
@@ -64,7 +59,8 @@ func searchTrie() {
 
 }
 
-func sensitiveWordsTest() {
+//敏感词汇屏蔽测试
+func TestSensitiveWordsTest(t *testing.T) {
 	trie := New()
 	trie.insert("粗话").insert("fuck").insert("fuckk").insert("脏话")
 	s := "我是脏话，我是粗话，fuckk,fuck,fffuccck"
@@ -80,7 +76,8 @@ func sensitiveWordsTest() {
 	fmt.Println(word)
 }
 
-func commonTest() {
+//常规功能测试
+func TestCommonTest(t *testing.T) {
 	trie := New()
 	trie.insert("ABC").insert("AB").insert("ABE").insert("ABEX").insert("XYZ").insert("你").insert("你好").insert("你是谁")
 	result := trie.Traverse()

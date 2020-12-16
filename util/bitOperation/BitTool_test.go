@@ -11,18 +11,7 @@ import (
 	"testing"
 )
 
-func TestBitTool(t *testing.T) {
-	JudgeIfEvenTest()
-	JudgeIfOddTest()
-	JudgeOneWithPositionTest()
-	JudgeOnlyOneBitWithOneTest()
-	JudgeWithEqualSymbolTest()
-	SetOneByPositionTest()
-	SetZeroBuPositionTest()
-
-}
-
-func SetZeroBuPositionTest() {
+func TestSetZeroBuPosition(t *testing.T) {
 	fmt.Println("设置某个位置上的元素为0")
 	fmt.Println(fmt.Sprintf("原始: %16b", 1))
 	fmt.Println(fmt.Sprintf("结果：%16b", SetZeroBuPosition(1, 1)))
@@ -42,7 +31,7 @@ func SetZeroBuPositionTest() {
 	fmt.Println()
 }
 
-func SetOneByPositionTest() {
+func TestSetOneByPosition(t *testing.T) {
 	fmt.Println("设置某个位置上的元素为1")
 	fmt.Println(fmt.Sprintf("原始: %16b", 2))
 	fmt.Println(fmt.Sprintf("结果：%16b", SetOneByPosition(2, 1)))
@@ -63,7 +52,7 @@ func SetOneByPositionTest() {
 	fmt.Println()
 }
 
-func JudgeWithEqualSymbolTest() {
+func TestJudgeWithEqualSymbol(t *testing.T) {
 	fmt.Println("判断两个数正负符号是否一致")
 	fmt.Println(JudgeWithEqualSymbol(10, 20))
 	fmt.Println(JudgeWithEqualSymbol(10, -20))
@@ -72,7 +61,7 @@ func JudgeWithEqualSymbolTest() {
 	fmt.Println()
 }
 
-func JudgeOneWithPositionTest() {
+func TestJudgeOneWithPosition(t *testing.T) {
 	fmt.Println("判断二进制表示的某个位上是否为1")
 	fmt.Println(fmt.Sprintf("%16b", 1))
 	fmt.Println(JudgeOneWithPosition(1, 1))
@@ -87,7 +76,7 @@ func JudgeOneWithPositionTest() {
 	fmt.Println()
 }
 
-func JudgeIfOddTest() {
+func TestJudgeIfOdd(t *testing.T) {
 	fmt.Println("奇数的判断")
 	fmt.Println(JudgeIfOdd(1))
 	fmt.Println(JudgeIfOdd(2))
@@ -99,7 +88,7 @@ func JudgeIfOddTest() {
 	fmt.Println()
 }
 
-func JudgeIfEvenTest() {
+func TestJudgeIfEven(t *testing.T) {
 	fmt.Println("偶数的判断")
 	fmt.Println(JudgeIfEven(1))
 	fmt.Println(JudgeIfEven(2))
@@ -111,7 +100,7 @@ func JudgeIfEvenTest() {
 	fmt.Println()
 }
 
-func JudgeOnlyOneBitWithOneTest() {
+func TestJudgeOnlyOneBitWithOne(t *testing.T) {
 	fmt.Println("判断二进制表示是不是只有一个位为1")
 	fmt.Println(JudgeOnlyOneBitWithOne(1))
 	fmt.Println(JudgeOnlyOneBitWithOne(2))

@@ -12,32 +12,6 @@ import (
 	"testing"
 )
 
-func TestBitStore(t *testing.T) {
-	//fmt.Println("测试2档的情况")
-	//testTwo()
-	//fmt.Println()
-	//
-	//fmt.Println("测试10档的情况")
-	//testTen()
-	//fmt.Println()
-	//
-	//fmt.Println("测试18档的情况")
-	//testEighteen()
-	//fmt.Println()
-
-	//fmt.Println("测试33档的情况")
-	//testThirtyThree()
-	//fmt.Println()
-
-	//fmt.Println("测试58档的情况")
-	//testFiftyEight()
-	//fmt.Println()
-
-	fmt.Println("测试1000档的情况")
-	testOneThousand()
-	fmt.Println()
-}
-
 func newStoreMap(bitStore *BitStore) {
 	gearMap := bitStore.FindAllGearMap()
 	falseList := make([]int, 0)
@@ -66,7 +40,7 @@ func getReceiveResult(bitStore *BitStore) {
 	}
 }
 
-func testOneThousand() {
+func TestOneThousand(t *testing.T) {
 	bitStore := NewBitStore(1000, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -115,7 +89,7 @@ func testOneThousand() {
 	getReceiveResult(bitStore)
 }
 
-func testFiftyEight() {
+func TestFiftyEight(t *testing.T) {
 	bitStore := NewBitStore(58, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -148,7 +122,7 @@ func testFiftyEight() {
 	}
 }
 
-func testThirtyThree() {
+func TestThirtyThree(t *testing.T) {
 	bitStore := NewBitStore(33, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -175,7 +149,7 @@ func testThirtyThree() {
 	}
 }
 
-func testEighteen() {
+func TestEighteen(t *testing.T) {
 	bitStore := NewBitStore(18, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -196,7 +170,7 @@ func testEighteen() {
 	}
 }
 
-func testTen() {
+func TestTen(t *testing.T) {
 	bitStore := NewBitStore(10, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -215,7 +189,7 @@ func testTen() {
 	}
 }
 
-func testTwo() {
+func TestTwo(t *testing.T) {
 	bitStore := NewBitStore(2, nil)
 
 	newStoreMap(bitStore) //初始化的校验
