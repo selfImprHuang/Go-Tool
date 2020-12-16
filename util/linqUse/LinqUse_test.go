@@ -2,7 +2,7 @@
  *  @Author : huangzj
  *  @Time : 2020/11/12 10:52
  *  @Description：这边是linq包的使用操作，为之后的使用做一些示例
- *  包引用命令： go get github.com/ahmetalpbalkan/go-linq
+ *  包引用命令： go get github.com/ahmetb/go-linq
  *  示例参考地址：https://godoc.org/github.com/ahmetb/go-linq#
  *  在Idea中对应方法名上使用 Shift+F1 组合键操作可以直接跳转到方法对应的地址
  */
