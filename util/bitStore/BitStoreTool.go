@@ -12,7 +12,8 @@ package bitStore
 import "fmt"
 
 const (
-	bit = 32
+	bit     = 32
+	realBit = 31
 )
 
 type BitStore struct {
@@ -72,12 +73,12 @@ func (bitStore *BitStore) checkGearRight(gear int) {
 
 //获取当前档位对应的数组长度（这边的length是从1开始的.）
 func (bitStore *BitStore) getGearListLength(gear int) int {
-	return (gear + bit) / bit
+	return ((gear - 1) + (bit - 1)) / (bit - 1)
 }
 
 //获取档位所在的二进制位置
 func (bitStore *BitStore) getGearPosition(gear, length int) int {
-	return (gear - bit*(length-1)) - 1
+	return gear - (bit-1)*(length-1) - 1
 }
 
 func (bitStore *BitStore) getSizeOrInit() int {
@@ -90,8 +91,8 @@ func (bitStore *BitStore) getSizeOrInit() int {
 func (bitStore *BitStore) fullListDeal(listSize int, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < length; i++ {
-		for j := 0; j < bit && bitStore.MaxGear > i*bit+j; j++ {
-			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
+		for j := 0; j < bit-1 && bitStore.MaxGear > i*(bit-1)+j; j++ {
+			resultMap[i*(bit-1)+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	return resultMap
@@ -100,13 +101,13 @@ func (bitStore *BitStore) fullListDeal(listSize int, length int) map[int]bool {
 func (bitStore *BitStore) shortListDeal(listSize, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < listSize; i++ {
-		for j := 0; j < bit; j++ {
-			resultMap[i*bit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
+		for j := 0; j < (bit - 1); j++ {
+			resultMap[i*(bit-1)+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	for i := listSize; i < length; i++ {
-		for j := 0; j < bit && bitStore.MaxGear > i*bit+j; j++ {
-			resultMap[i*bit+j+1] = false
+		for j := 0; j < (bit-1) && bitStore.MaxGear > i*(bit-1)+j; j++ {
+			resultMap[i*(bit-1)+j+1] = false
 		}
 	}
 	return resultMap
