@@ -78,7 +78,7 @@ func (bitStore *BitStore) getGearListLength(gear int) int {
 
 //获取档位所在的二进制位置
 func (bitStore *BitStore) getGearPosition(gear, length int) int {
-	return gear - (bit-1)*(length-1) - 1
+	return (gear - 1) % (bit - 1)
 }
 
 func (bitStore *BitStore) getSizeOrInit() int {
