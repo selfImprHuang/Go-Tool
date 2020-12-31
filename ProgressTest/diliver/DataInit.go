@@ -4,7 +4,7 @@
  *  @Description：
  */
 
-package ProgressTest
+package diliver
 
 import (
 	"Go-Tool/util/file"
@@ -23,7 +23,7 @@ type Deliver struct {
 
 func MakeData() DeliverList {
 	var deliver DeliverList
-	content, _ := file.ReadJsonFile("F:\\Go_BySelf\\src\\Go-Tool\\ProgressTest\\deliverData.json")
+	content, _ := file.ReadJsonFile("F:\\Go_BySelf\\src\\Go-Tool\\ProgressTest\\diliver\\deliverData.json")
 	_ = json.Unmarshal([]byte(content), &deliver)
 	return deliver
 }
