@@ -7,11 +7,73 @@
 package bitStore
 
 import (
-	"Go-Tool/util/sort"
 	"fmt"
 	"math"
 	"testing"
 )
+
+func TestBitStore(t *testing.T) {
+	fmt.Println("测试2档的情况")
+	testTwo()
+	fmt.Println()
+
+	fmt.Println("测试10档的情况")
+	testTen()
+	fmt.Println()
+
+	fmt.Println("测试18档的情况")
+	testEighteen()
+	fmt.Println()
+
+	fmt.Println("测试33档的情况")
+	testThirtyThree()
+	fmt.Println()
+
+	fmt.Println("测试58档的情况")
+	testFiftyEight()
+	fmt.Println()
+
+	fmt.Println("测试1000档的情况")
+	testOneThousand(t)
+	fmt.Println()
+}
+
+func TestBitStoreFind(t *testing.T) {
+	bitStore := NewBitStore(120, nil)
+	bitStore.ReceiveByGear(1)
+	bitStore.ReceiveByGear(3)
+	bitStore.ReceiveByGear(5)
+	bitStore.ReceiveByGear(7)
+	bitStore.ReceiveByGear(13)
+	bitStore.ReceiveByGear(10)
+	bitStore.ReceiveByGear(16)
+	bitStore.ReceiveByGear(33)
+	bitStore.ReceiveByGear(35)
+
+	fmt.Println(bitStore.FindGearMap())
+	fmt.Println(bitStore.FindSpecialGearList(1))
+	fmt.Println(len(bitStore.FindSpecialGearList(1)))
+	fmt.Println(bitStore.FindSpecialGearList(4))
+	fmt.Println(len(bitStore.FindSpecialGearList(4)))
+	fmt.Println(bitStore.FindSpecialGearList(2))
+	fmt.Println(len(bitStore.FindSpecialGearList(2)))
+	fmt.Println(bitStore.FindSpecialGearList(10))
+	fmt.Println(len(bitStore.FindSpecialGearList(10)))
+	fmt.Println(bitStore.FindSpecialGearList(13))
+	fmt.Println(len(bitStore.FindSpecialGearList(13)))
+	fmt.Println(bitStore.FindSpecialGearList(14))
+	fmt.Println(len(bitStore.FindSpecialGearList(14)))
+	fmt.Println(bitStore.FindSpecialGearList(20))
+	fmt.Println(len(bitStore.FindSpecialGearList(20)))
+	fmt.Println(bitStore.FindSpecialGearList(32))
+	fmt.Println(len(bitStore.FindSpecialGearList(32)))
+	fmt.Println(bitStore.FindSpecialGearList(63))
+	fmt.Println(len(bitStore.FindSpecialGearList(63)))
+	fmt.Println(bitStore.FindSpecialGearList(64))
+	fmt.Println(len(bitStore.FindSpecialGearList(64)))
+	fmt.Println(bitStore.FindSpecialGearList(65))
+	fmt.Println(len(bitStore.FindSpecialGearList(65)))
+}
 
 func newStoreMap(bitStore *BitStore) {
 	gearMap := bitStore.FindAllGearMap()
@@ -34,22 +96,21 @@ func getReceiveResult(bitStore *BitStore) {
 			keyList = append(keyList, key)
 		}
 	}
-	sort.BubbleSort(keyList)
 	fmt.Println("已经领取的档位信息如下")
 	for value := range keyList {
 		fmt.Print(fmt.Sprintf("%d,", keyList[value]))
 	}
 }
 
-func TestOneThousand(t *testing.T) {
+func testOneThousand(t *testing.T) {
 	bitStore := NewBitStore(1000, nil)
 
 	newStoreMap(bitStore) //初始化的校验
 
 	fmt.Println()
-	bitStore.ReceiveByGear(1)
+	bitStore.ReceiveByGear(3)
 	fmt.Println(fmt.Sprintf("%b", bitStore.GearPickList[0]))
-	fmt.Println(fmt.Sprintf("这个时候领取结果  1应该返回true，结果是：%v", bitStore.IsGearReceive(3)))
+	fmt.Println(fmt.Sprintf("这个时候领取结果  3应该返回true，结果是：%v", bitStore.IsGearReceive(3)))
 	bitStore.ReceiveByGear(8)
 	fmt.Println(fmt.Sprintf("%b", bitStore.GearPickList[0]))
 	fmt.Println(fmt.Sprintf("这个时候领取结果  8应该返回true，结果是：%v", bitStore.IsGearReceive(8)))
@@ -76,10 +137,10 @@ func TestOneThousand(t *testing.T) {
 	fmt.Println(fmt.Sprintf("这个时候领取结果  44应该返回true，结果是：%v", bitStore.IsGearReceive(44)))
 	bitStore.ReceiveByGear(48)
 	fmt.Println(fmt.Sprintf("%b", bitStore.GearPickList[1]))
+	fmt.Println(fmt.Sprintf("这个时候领取结果  48应该返回true，结果是：%v", bitStore.IsGearReceive(48)))
 
 	fmt.Println(fmt.Sprintf("判断当前数组是否动态增长，当前数组长度为:%d", len(bitStore.GearPickList)))
 
-	fmt.Println(fmt.Sprintf("这个时候领取结果  48应该返回true，结果是：%v", bitStore.IsGearReceive(48)))
 	bitStore.ReceiveByGear(123)
 	fmt.Println(fmt.Sprintf("这个时候领取结果  123应该返回true，结果是：%v", bitStore.IsGearReceive(123)))
 
@@ -100,7 +161,7 @@ func TestOneThousand(t *testing.T) {
 	getReceiveResult(bitStore)
 }
 
-func TestFiftyEight(t *testing.T) {
+func testFiftyEight() {
 	bitStore := NewBitStore(58, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -133,7 +194,7 @@ func TestFiftyEight(t *testing.T) {
 	}
 }
 
-func TestThirtyThree(t *testing.T) {
+func testThirtyThree() {
 	bitStore := NewBitStore(33, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -160,7 +221,7 @@ func TestThirtyThree(t *testing.T) {
 	}
 }
 
-func TestEighteen(t *testing.T) {
+func testEighteen() {
 	bitStore := NewBitStore(18, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -181,7 +242,7 @@ func TestEighteen(t *testing.T) {
 	}
 }
 
-func TestTen(t *testing.T) {
+func testTen() {
 	bitStore := NewBitStore(10, nil)
 
 	newStoreMap(bitStore) //初始化的校验
@@ -200,7 +261,7 @@ func TestTen(t *testing.T) {
 	}
 }
 
-func TestTwo(t *testing.T) {
+func testTwo() {
 	bitStore := NewBitStore(2, nil)
 
 	newStoreMap(bitStore) //初始化的校验

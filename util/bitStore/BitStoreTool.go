@@ -12,13 +12,13 @@ package bitStore
 import "fmt"
 
 const (
-	bit     = 32
-	realBit = 31
+	bit     = 32 //作为标识，没有实际作用
+	realBit = 31 //真实参与计算的每个数字代表的档位数量
 )
 
 type BitStore struct {
-	MaxGear      int //存储的最大挡位
-	GearPickList []int
+	MaxGear      int   //存储的最大挡位
+	GearPickList []int //用来表示档位的数组(每一个数表示【下标 * bit】位的档位存储结果)
 }
 
 //初始化方法，gear表示最大的领取档位是多少.(档位刚开始计算，没有值的情况)
@@ -32,6 +32,19 @@ func NewBitStore(gear int, gearPickList []int) *BitStore {
 		MaxGear:      gear,
 		GearPickList: gearPickList,
 	}
+}
+
+//返回指定档位长度的领取状态数组
+func (bitStore *BitStore) FindSpecialGearList(gear int) []bool {
+	bitStore.checkGearRight(gear)           //校验传进来的长度是否正确
+	bitStore.getSizeOrInit()                //如果数组没有初始化，进行初始化
+	return bitStore.getGearListByGear(gear) //返回指定长度的领取状态数组
+}
+
+//获取当前有记录的档位的Map
+func (bitStore *BitStore) FindGearMap() map[int]bool {
+	listSize := bitStore.getSizeOrInit()              //获取当前数组长度，如果数组没有初始化，进行初始化
+	return bitStore.shortListDeal(listSize, listSize) //短数组的处理(没有达到最大大小的数组长度)
 }
 
 //获取所有档位对应的Map
@@ -73,12 +86,12 @@ func (bitStore *BitStore) checkGearRight(gear int) {
 
 //获取当前档位对应的数组长度（这边的length是从1开始的.）
 func (bitStore *BitStore) getGearListLength(gear int) int {
-	return ((gear - 1) + (bit - 1)) / (bit - 1)
+	return ((gear - 1) + realBit) / realBit
 }
 
 //获取档位所在的二进制位置
 func (bitStore *BitStore) getGearPosition(gear, length int) int {
-	return (gear - 1) % (bit - 1)
+	return gear - realBit*(length-1) - 1
 }
 
 func (bitStore *BitStore) getSizeOrInit() int {
@@ -91,8 +104,8 @@ func (bitStore *BitStore) getSizeOrInit() int {
 func (bitStore *BitStore) fullListDeal(listSize int, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < length; i++ {
-		for j := 0; j < bit-1 && bitStore.MaxGear > i*(bit-1)+j; j++ {
-			resultMap[i*(bit-1)+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
+		for j := 0; j < realBit && bitStore.MaxGear > i*realBit+j; j++ {
+			resultMap[i*realBit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	return resultMap
@@ -101,13 +114,13 @@ func (bitStore *BitStore) fullListDeal(listSize int, length int) map[int]bool {
 func (bitStore *BitStore) shortListDeal(listSize, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < listSize; i++ {
-		for j := 0; j < (bit - 1); j++ {
-			resultMap[i*(bit-1)+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
+		for j := 0; j < realBit; j++ {
+			resultMap[i*realBit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	for i := listSize; i < length; i++ {
-		for j := 0; j < (bit-1) && bitStore.MaxGear > i*(bit-1)+j; j++ {
-			resultMap[i*(bit-1)+j+1] = false
+		for j := 0; j < realBit && bitStore.MaxGear > i*realBit+j; j++ {
+			resultMap[i*realBit+j+1] = false
 		}
 	}
 	return resultMap
@@ -130,4 +143,30 @@ func (bitStore *BitStore) checkIfReceive(gear int) {
 	if bitStore.IsGearReceive(gear) {
 		panic("当前档位已被领取，不可重复领取")
 	}
+}
+
+func (bitStore *BitStore) getGearListByGear(gear int) []bool {
+	gearList := make([]bool, 0)
+	listAllGear := len(bitStore.GearPickList) * realBit //当前已领取数组可表示的总档位
+	//如果指定的长度大于gear已有数组长度，需要特殊处理
+	if listAllGear <= gear {
+		for i := 0; i < (listAllGear-1)/realBit+1; i++ {
+			for j := 0; j < realBit && realBit*i+j < gear; j++ {
+				gearList = append(gearList, (bitStore.GearPickList[i]&(1<<uint(j))) > 0)
+			}
+		}
+		for i := 0; i < gear-listAllGear; i++ {
+			for j := 0; j < realBit && realBit*i+j < gear-listAllGear; j++ {
+				gearList = append(gearList, false)
+			}
+		}
+		return gearList
+	}
+	//如果获取的档位比实际记录的档位小
+	for i := 0; i < (gear-1)/realBit+1; i++ {
+		for j := 0; j < realBit && realBit*i+j < gear; j++ {
+			gearList = append(gearList, (bitStore.GearPickList[i]&(1<<uint(j))) > 0)
+		}
+	}
+	return gearList
 }
