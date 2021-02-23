@@ -73,8 +73,23 @@ func (bitStore *BitStore) ReceiveByGear(gear int) ([]int, map[int]bool) {
 	bitStore.checkIfReceive(gear)                      //校验是否被领取了
 	length := bitStore.dynamicGrowth(gear)             //数组进行动态增长
 	position := bitStore.getGearPosition(gear, length) //获取档位在数组中的位数位置
-	bitStore.GearPickList[length-1] = bitStore.GearPickList[length-1] + (1 << uint(position))
+	bitStore.GearPickList[length-1] = bitStore.GearPickList[length-1] | (1 << uint(position))
 	return bitStore.GearPickList, bitStore.FindAllGearMap()
+}
+
+//设置某一档位为未领取
+func (bitStore *BitStore) UnReceiveByGear(gear int) ([]int, map[int]bool) {
+	bitStore.checkIfUnReceive(gear)                    //检验是否被领取
+	length := bitStore.dynamicGrowth(gear)             //数组进行动态增长
+	position := bitStore.getGearPosition(gear, length) //获取档位在数组中的位数位置
+	bitStore.GearPickList[length-1] = bitStore.GearPickList[length-1] - (1 << uint(position))
+	return bitStore.GearPickList, bitStore.FindAllGearMap()
+}
+
+func (bitStore *BitStore) checkIfUnReceive(gear int) {
+	if !bitStore.IsGearReceive(gear) {
+		panic("当前档位未领取，不可重置")
+	}
 }
 
 //判断档位是否正确
@@ -91,7 +106,7 @@ func (bitStore *BitStore) getGearListLength(gear int) int {
 
 //获取档位所在的二进制位置
 func (bitStore *BitStore) getGearPosition(gear, length int) int {
-	return gear - realBit*(length-1) - 1
+	return (gear - 1) - realBit*(length-1)
 }
 
 func (bitStore *BitStore) getSizeOrInit() int {
@@ -115,7 +130,8 @@ func (bitStore *BitStore) shortListDeal(listSize, length int) map[int]bool {
 	resultMap := make(map[int]bool, 0)
 	for i := 0; i < listSize; i++ {
 		for j := 0; j < realBit; j++ {
-			resultMap[i*realBit+j+1] = (bitStore.GearPickList[i] & (1 << uint(j))) > 0
+			resultMap[i*realBit+j+1] =
+				(bitStore.GearPickList[i] & (1 << uint(j))) > 0
 		}
 	}
 	for i := listSize; i < length; i++ {

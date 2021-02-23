@@ -23,7 +23,7 @@ func LomutoPartition(list []int, start int, end int) int {
 		if list[i] < compareValue {
 			moveSubscript++
 			charge++
-			list[moveSubscript], list[i] = list[i], list[moveSubscript]
+			list[moveSubscript], list[i] = list[i], list[moveSubscript] //交换元素
 		}
 	}
 	charge++

@@ -32,7 +32,7 @@ func initTrie() *Trie {
 }
 
 //往前缀树中添加对应的字符串(build模式)
-func (trie *Trie) insert(word string) *Trie {
+func (trie *Trie) Insert(word string) *Trie {
 	traverse := trie
 	for _, v := range []rune(word) {
 		if _, ok := traverse.Child[v]; !ok {
@@ -48,13 +48,21 @@ func (trie *Trie) insert(word string) *Trie {
 //删除对应的字符串，如果查找不到则直接返回(build模式)
 func (trie *Trie) Delete(word string) *Trie {
 	traverse := trie
+	parent := trie
+	var value rune
 	for _, v := range []rune(word) {
 		if _, ok := traverse.Child[v]; !ok {
 			return trie
 		}
+		parent = traverse
 		traverse = traverse.Child[v]
+		value = v
 	}
-	traverse.Word = emptyTag
+	if len(parent.Child) == 0 {
+		delete(parent.Child, value)
+		return trie
+	}
+	parent.Child[value].Word = emptyTag
 	return trie
 }
 

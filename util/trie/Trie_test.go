@@ -14,15 +14,16 @@ import (
 //模糊查询前缀匹配的所有字符串
 func TestSearchTrieVague(t *testing.T) {
 	fmt.Println()
-	fmt.Println("模糊查询 查找前缀匹配的所有字符串")
+	fmt.Println("模糊查询 查找前缀匹配的所有字符串，输入\"新年快乐\" ")
 	trie := New()
-	trie.insert("abcuuid").insert("abcuued").insert("abcMxns").insert("abssde").insert("avddfa")
-	trie.insert("我爱中国").insert("我爱祖国").insert("我爱学习").insert("我是谁").insert("我在哪里")
-	trie.insert("我是你").insert("我").insert("我喜欢学习").insert("我在厦门").insert("我是一个程序员")
+	trie.Insert("abcuuid").Insert("abcuued").Insert("abcMxns").Insert("abssde").Insert("avddfa")
+	trie.Insert("我爱中国").Insert("我爱祖国").Insert("我爱学习").Insert("我是谁").Insert("我在哪里")
+	trie.Insert("我是你").Insert("我").Insert("我喜欢学习").Insert("我在厦门").Insert("我是一个程序员")
+	trie.Insert("新年快乐，你好呀").Insert("新年新气象").Insert("新的一年新的开始")
 
 	fmt.Println()
 	fmt.Println()
-	result3, _ := trie.SearchTrieVague("我爱她")
+	result3, _ := trie.SearchTrieVague("新年快乐")
 	for _, r := range result3 {
 		fmt.Println(r)
 	}
@@ -33,8 +34,8 @@ func TestSearchTrie(t *testing.T) {
 	fmt.Println()
 	fmt.Println("查找前缀匹配的所有字符串")
 	trie := New()
-	trie.insert("abcuuid").insert("abcuued").insert("abcMxns").insert("abssde").insert("avddfa")
-	trie.insert("我爱中国").insert("我爱祖国").insert("我爱学习").insert("我是谁").insert("我在哪里")
+	trie.Insert("abcuuid").Insert("abcuued").Insert("abcMxns").Insert("abssde").Insert("avddfa")
+	trie.Insert("我爱中国").Insert("我爱祖国").Insert("我爱学习").Insert("我是谁").Insert("我在哪里")
 
 	fmt.Println()
 	fmt.Println()
@@ -62,7 +63,7 @@ func TestSearchTrie(t *testing.T) {
 //敏感词汇屏蔽测试
 func TestSensitiveWordsTest(t *testing.T) {
 	trie := New()
-	trie.insert("粗话").insert("fuck").insert("fuckk").insert("脏话")
+	trie.Insert("粗话").Insert("fuck").Insert("fuckk").Insert("脏话")
 	s := "我是脏话，我是粗话，fuckk,fuck,fffuccck"
 	word := trie.DealFunc(s, func(sentence []rune, start int, end int) string {
 		var replace string
@@ -73,13 +74,14 @@ func TestSensitiveWordsTest(t *testing.T) {
 		runes = append(runes, sentence[end:]...)
 		return string(runes)
 	})
-	fmt.Println(word)
+	fmt.Println(fmt.Sprintf("原来的字符串： \"%v\"", s))
+	fmt.Println(fmt.Sprintf("转换后的字符串： \"%v\"", word))
 }
 
 //常规功能测试
 func TestCommonTest(t *testing.T) {
 	trie := New()
-	trie.insert("ABC").insert("AB").insert("ABE").insert("ABEX").insert("XYZ").insert("你").insert("你好").insert("你是谁")
+	trie.Insert("ABC").Insert("AB").Insert("ABE").Insert("ABEX").Insert("XYZ").Insert("你").Insert("你好").Insert("你是谁")
 	result := trie.Traverse()
 	for _, r := range result {
 		fmt.Println(r)

@@ -13,17 +13,26 @@ import (
 
 func TestPartition(t *testing.T) {
 	list := []int{99, 1, 2, 3, 4, 100, 200, 90, 5}
-	s := LomutoPartition(list, 0, 9-1)
-	fmt.Println(fmt.Sprintf("当前第一个元素应该存在位置为：%d", s))
-	for _, r := range list {
-		fmt.Print(r, " ")
+
+	for i := 1; i <= len(list); i++ {
+		s := LomutoPartition(list, 0, len(list)-1)
+		fmt.Println()
+		fmt.Println(fmt.Sprintf("当前第一个元素应该存在位置为：%d", s))
+		for _, r := range list {
+			fmt.Print(r, " ")
+		}
 	}
 
-	s = LomutoPartition(list, 0, 9-1)
-	fmt.Println(fmt.Sprintf("当前第一个元素应该存在位置为：%d", s))
-	for _, r := range list {
-		fmt.Print(r, " ")
+	fmt.Println()
+	for i := 1; i <= len(list); i++ {
+		num, _, _ := LomutoQuiteSelect(list, i)
+		fmt.Println(fmt.Sprintf("第%d个位置的数是：%d", i, num))
 	}
+
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i])
+	}
+
 }
 
 func doc() string {

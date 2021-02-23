@@ -102,12 +102,9 @@ func TestJudgeIfEven(t *testing.T) {
 
 func TestJudgeOnlyOneBitWithOne(t *testing.T) {
 	fmt.Println("判断二进制表示是不是只有一个位为1")
-	fmt.Println(JudgeOnlyOneBitWithOne(1))
-	fmt.Println(JudgeOnlyOneBitWithOne(2))
-	fmt.Println(JudgeOnlyOneBitWithOne(3))
-	fmt.Println(JudgeOnlyOneBitWithOne(4))
-	fmt.Println(JudgeOnlyOneBitWithOne(56))
-	fmt.Println(JudgeOnlyOneBitWithOne(64))
+	for i := 0; i <= 32; i++ {
+		fmt.Println(fmt.Sprintf("%d是不是2的n次方，结果为%v", i, JudgeOnlyOneBitWithOne(i)))
+	}
 	fmt.Println()
 	fmt.Println(JudgeOnlyOneBitWithOne(-1))
 	fmt.Println(JudgeOnlyOneBitWithOne(-2))

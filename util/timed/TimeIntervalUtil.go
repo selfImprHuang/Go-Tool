@@ -136,6 +136,20 @@ func GetIntervalBetweenTimes(timestamp, stamp int64) vo.IntervalObj {
 
 }
 
+// 获取两个时间点之间相差多少天
+func GetIntervalDay(beforeTime, afterTime time.Time) int {
+	timestamp := beforeTime.Unix()
+	stamp := afterTime.Unix()
+	//时间大小保证前小后大
+	if timestamp > stamp {
+		timestamp, stamp = stamp, timestamp
+	}
+	timeBefore := time.Unix(timestamp, 0)
+	timeAfter := time.Unix(stamp, 0)
+	m := timeAfter.Sub(timeBefore)
+	return int(m.Hours() / 24)
+}
+
 /*
  * @param timestamp 时间戳
  * @param stamp 时间戳

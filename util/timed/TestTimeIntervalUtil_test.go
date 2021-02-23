@@ -42,6 +42,15 @@ func TestTimeIntervalUtil(t *testing.T) {
 	o2 := GetIntervalBetweenTimes(time.Now().AddDate(3, 2, 5).Add(5*time.Hour).Add(7*time.Minute).Add(10*time.Second).Unix(), time.Now().Unix())
 	o3 := GetIntervalBetweenTimes(time.Now().Unix(), time.Now().AddDate(3, -2, 5).Add(5*time.Hour).Add(7*time.Minute).Add(10*time.Second).Unix())
 
+	O4 := GetIntervalDay(time.Now(), time.Now().AddDate(0, 0, 2))
+	O5 := GetIntervalDay(time.Now(), time.Now().AddDate(0, 0, 2).Add(5*time.Hour))
+	O6 := GetIntervalDay(time.Now(), time.Now().AddDate(0, 0, 2).Add(25*time.Hour))
+
+	fmt.Println("相差天数计算：")
+	fmt.Println(O4)
+	fmt.Println(O5)
+	fmt.Println(O6)
+
 	ox := GetIntervalBetweenTimes(time.Now().Unix(), time.Date(2020, 5, 6, 0, 0, 0, 0, time.Local).Unix())
 	fmt.Println(ox)
 
