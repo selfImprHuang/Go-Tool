@@ -1,7 +1,7 @@
 /*
  *  @Author : huangzj
  *  @Time : 2020/6/29 10:23
- *  @Description：这边的随机获取没有加锁，对于一些需要加锁的场景可以在外面再包装一层
+ *  @Description：
  */
 
 package rand

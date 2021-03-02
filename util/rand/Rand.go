@@ -1,7 +1,7 @@
 /*
  *  @Author : huangzj
  *  @Time : 2020/6/29 10:48
- *  @Description：这边的随机获取没有加锁，对于一些需要加锁的场景可以在外面再包装一层
+ *  @Description：
  */
 
 package rand
@@ -47,7 +47,7 @@ func GetRandIntNoRepeat(count, min, max int) []int {
 	return randAttr
 }
 
-//从一个数组中获取到X个不重复随机数
+//从一个数组中获取到X个不重复下标的随机数
 func GetDiffNum(data []int, count int) []int {
 	if count > len(data) {
 		panic("获取随机数数量有误")

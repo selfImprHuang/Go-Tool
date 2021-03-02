@@ -23,4 +23,6 @@ func TestHorspool(t *testing.T) {
 	fmt.Println("该子串的位置为：", Horspool("abcdefghijk", "kdasdsad")) //输出-1
 	fmt.Println("该子串的位置为：", Horspool("abcdefghijk", "dsadsa"))   //输出-1
 
+	fmt.Println(shiTable("abdabe"))
+
 }
