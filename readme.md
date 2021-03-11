@@ -1,3 +1,6 @@
+#我的公众号二维码
+![](.readme_images/B5F8E89A-CE33-4a78-A461-E9014B10A3D9.png)
+
 # 作用
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本工程仅供个人学习记录，刚开始学习go（之前是java），本工程积累一些反射的用法。后期查询更加快捷
 
@@ -105,4 +108,3 @@
 - 在文件中import引用对应的路径
 - vendor加载对应的包
 
-![](.readme_images/B5F8E89A-CE33-4a78-A461-E9014B10A3D9.png)
