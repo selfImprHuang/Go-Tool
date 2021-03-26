@@ -17,6 +17,14 @@ func QuickSort(list []int, start, end int) {
 	}
 }
 
+func QuickSortByte(list []byte, start, end int) {
+	if start < end {
+		position := hoarePartition1(list, start, end)
+		QuickSortByte(list, start, position) //注意这边结束的下表是position，而不是position + 1
+		QuickSortByte(list, position+1, end)
+	}
+}
+
 //通过lomuto划分来实现快速排序
 func QuickSort1(list []int, start, end int) {
 	if start < end {
@@ -24,6 +32,25 @@ func QuickSort1(list []int, start, end int) {
 		QuickSort(list, start, position)
 		QuickSort(list, position+1, end)
 	}
+}
+
+func hoarePartition1(list []byte, start int, end int) int {
+	value := list[start] //比较的元素
+	s := start
+	e := end
+	for s < e {
+		//找到数组终止前，比目标数(value)大的数字
+		for ; s < end && list[s] < value; s++ {
+		}
+		//找到数组结束前，比目标数(value)小的数字
+		for ; e > start && list[e] >= value; e-- {
+		}
+		if s < e {
+			list[s], list[e] = list[e], list[s]
+		}
+	}
+	list[start], list[e] = list[e], list[start]
+	return e
 }
 
 func hoarePartition(list []int, start int, end int) int {
