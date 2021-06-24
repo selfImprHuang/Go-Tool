@@ -6,6 +6,16 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+	"github.com/ahmetb/go-linq"
+)
 
+func main() {
+	var a = []int{1, 5, 3, 4}
+	linq.From(a).Sort(func(i, j interface{}) bool {
+		return i.(int) < j.(int)
+	}).ToSlice(&a)
+
+	fmt.Println(a)
 }

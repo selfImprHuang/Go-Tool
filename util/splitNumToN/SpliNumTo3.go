@@ -28,8 +28,8 @@ func SplitNumTo3(num int) {
 	}
 }
 
-//num 被随机的数
-//count count + 1 = 总随机数数量
+//num  : 被随机拆分的数
+//count: count + 1 = 总随机数数量
 func getRandValue(num int, count int) int {
 	minValue := num - 6*count
 	if minValue <= 0 {
